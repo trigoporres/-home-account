@@ -55,7 +55,6 @@ module.exports = {
 			phone : req.body.phone,
 			salary : req.body.salary,
 			address : req.body.address,
-			gastos : req.body.gastos,
 			balance : req.body.balance
 
         });
@@ -89,16 +88,15 @@ module.exports = {
                 });
             }
 
-            user.first_name = req.body.first_name ? req.body.first_name : user.first_name;
-			user.last_name = req.body.last_name ? req.body.last_name : user.last_name;
-			user.email = req.body.email ? req.body.email : user.email;
-			user.password = req.body.password ? req.body.password : user.password;
-			user.phone = req.body.phone ? req.body.phone : user.phone;
-			user.salary = req.body.salary ? req.body.salary : user.salary;
-			user.address = req.body.address ? req.body.address : user.address;
-			user.gastos = req.body.gastos ? req.body.gastos : user.gastos;
-			user.balance = req.body.balance ? req.body.balance : user.balance;
-			
+            user.first_name = req.body.first_name ;
+			user.last_name = req.body.last_name ;
+			user.email = req.body.email ;
+			user.password = req.body.password ;
+			user.phone = req.body.phone ;
+			user.salary = req.body.salary ;
+			user.address = req.body.address ;
+			user.balance = req.body.balance;
+
             user.save(function (err, user) {
                 if (err) {
                     return res.status(500).json({

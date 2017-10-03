@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
 var expensesSchema = new Schema({
+	'creator': String,
 	'name' : String,
 	'company' : String,
 	'quantity' : Number,

@@ -32,9 +32,18 @@ require('./passport/serializers');
 require('./passport/local');
 
 const authRoutes = require('./routes/auth');
+const debt = require('./routes/debtRoutes');
+const expenses = require('./routes/expensesRoutes');
 const index = require('./routes/index');
-app.use('/', index);
+const project = require('./routes/projectRoutes');
+const user = require('./routes/userRoutes');
+
 app.use('/auth', authRoutes);
+app.use('/debt', debt);
+app.use('/expenses', expenses);
+app.use('/', index);
+app.use('/project', project);
+app.use('/user', user);
 
 require('./config/error-handler')(app);
 

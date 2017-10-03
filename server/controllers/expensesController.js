@@ -48,6 +48,7 @@ module.exports = {
      */
     create: function (req, res) {
         var expenses = new expensesModel({
+      creator : req.user._id,
 			name : req.body.name,
 			company : req.body.company,
 			quantity : req.body.quantity,
@@ -85,14 +86,14 @@ module.exports = {
                     message: 'No such expenses'
                 });
             }
-
+            creator = req.user._id;
             expenses.name = req.body.name ? req.body.name : expenses.name;
 			expenses.company = req.body.company ? req.body.company : expenses.company;
 			expenses.quantity = req.body.quantity ? req.body.quantity : expenses.quantity;
 			expenses.monthly = req.body.monthly ? req.body.monthly : expenses.monthly;
 			expenses.fin = req.body.fin ? req.body.fin : expenses.fin;
 			expenses.facture = req.body.facture ? req.body.facture : expenses.facture;
-			
+
             expenses.save(function (err, expenses) {
                 if (err) {
                     return res.status(500).json({
