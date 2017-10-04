@@ -8,8 +8,7 @@ const debug = require('debug')("home-account:"+path.basename(__filename).split('
 var authRoutes = express.Router();
 
 authRoutes.post('/signup', (req, res, next) => {
-  const {username, password, last_name, email} = req.body;
-
+  const {username,email, password, last_name, first_name} = req.body;
   if (!username || !password)
     return res.status(400).json({ message: 'Provide username and password' });
 
@@ -23,9 +22,10 @@ authRoutes.post('/signup', (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
     debug('creating user');
     const theUser = new User({
-      first_name: username,
-      last_name: last_name,
-      email: email,
+      first_name,
+      last_name,
+      email,
+      username,
       password: hashPass
     });
     return theUser.save()
