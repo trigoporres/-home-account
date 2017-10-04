@@ -7,6 +7,8 @@ const bodyParser     = require('body-parser');
 const mongoose       = require('mongoose');
 
 module.exports = (app) => {
+  mongoose.connect(process.env.MONGODB_URI);
+
   app.set('views', path.join(__dirname, '../views'));
   app.set('view engine', 'ejs');
 

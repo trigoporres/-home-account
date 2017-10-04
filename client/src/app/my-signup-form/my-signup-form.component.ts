@@ -24,6 +24,7 @@ export class MySignupFormComponent implements OnInit {
     password: "",
   };
 
+
   error: any;
 
   constructor(public auth:AuthService) { }
@@ -34,9 +35,7 @@ export class MySignupFormComponent implements OnInit {
   signup() {
     const { first_name, last_name, email,username, password } = this.signupInfo;
     this.auth.signup(first_name, last_name, email,username, password)
-      .subscribe(
-
-      );
+      .subscribe();
   }
 
 }

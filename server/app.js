@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const cors         = require('cors');
-
+const dotenv       = require('dotenv').config();
 const app = express();
 
 require('./config/database');
@@ -34,16 +34,17 @@ require('./passport/local');
 const authRoutes = require('./routes/auth');
 const debt = require('./routes/debtRoutes');
 const expenses = require('./routes/expensesRoutes');
-const index = require('./routes/index');
 const project = require('./routes/projectRoutes');
 const user = require('./routes/userRoutes');
 
 app.use('/auth', authRoutes);
 app.use('/debt', debt);
 app.use('/expenses', expenses);
-app.use('/', index);
 app.use('/project', project);
 app.use('/user', user);
+app.all('/*', function (req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
 
 require('./config/error-handler')(app);
 

@@ -4,11 +4,10 @@ const flash        = require("connect-flash");
 const mongoose     = require('mongoose');
 const passport     = require("passport");
 
-
 module.exports = function (app){
 
   app.use(session({
-    secret: 'home-account secret shh',
+    secret: process.env.Secret,
     resave: true,
     saveUninitialized: true,
     cookie : { httpOnly: true, maxAge: 60*60*24*365 },
