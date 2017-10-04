@@ -1,1 +1,14 @@
-<a [routerLink]="['/']">Signup</a>
+<form *ngIf="!user">
+  <h2> login </h2>
+
+  <label> User name </label>
+  <input type="text" [(ngModel)]="loginInfo.username" name="username"/>
+  <br><br>
+
+  <label> Password </label>
+  <input type="password" [(ngModel)]="loginInfo.password" name="password"/>
+  <br><br>
+
+  <button type="submit" (click)="login()" > login </button>
+  <a [routerLink]="['']">signup</a>
+</form>

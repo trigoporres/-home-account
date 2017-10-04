@@ -11,13 +11,15 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './service/auth.service';
 import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MySignupFormComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
