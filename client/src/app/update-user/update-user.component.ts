@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-update-user',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateUserComponent implements OnInit {
 
-  constructor() { }
+
+
+  user;
+  constructor(public auth:AuthService) { }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
+    this.auth.getLoginEventEmitter()
+       .subscribe( user => console.log(user) );
   }
+
+  updateInfo = {
+    first_name: this.user.first_name,
+  };
+
+
 
 }

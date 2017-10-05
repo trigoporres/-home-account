@@ -17,7 +17,14 @@ export class UserComponent implements OnInit {
     this.auth.getLoginEventEmitter()
         .subscribe( user => this.user=user );
   }
+
   ngOnInit() {
+  }
+
+  update(user){
+    this.userService.update(user)
+        .subscribe(result =>
+          this.router.navigate(["/id"]))
   }
 
   logout() {
@@ -25,12 +32,6 @@ export class UserComponent implements OnInit {
         .subscribe(result =>
            this.router.navigate([""])
         );
-  }
-
-  update(user){
-    this.userService.update(user)
-        .subscribe(result =>
-          this.router.navigate(["/id"]))
   }
 
 }

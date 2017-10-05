@@ -14,7 +14,7 @@ export const routes: Routes = [
     { path: 'user/:id',
       component: UserComponent,
     },
-    { path: 'user/:id/edit',
+    { path: 'edit',
       component: UpdateUserComponent,
     },
     {
