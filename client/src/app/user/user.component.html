@@ -1,3 +1,7 @@
-{{user?.username | json}}
-
+<div *ngIf="user">
+  <p>First name : <strong>{{user.first_name}}</strong></p>
+  <p>Last name : <strong>{{user.last_name}}</strong></p>
+  <p>Email : <strong>{{user.email}}</strong></p>
+</div>
+<button type="submit" (click)=update() name="button">Edit profile</button>
 <button type="submit" (click)=logout() name="button">Logout</button>

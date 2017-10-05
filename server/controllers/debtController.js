@@ -1,15 +1,7 @@
 var debtModel = require('../models/debtModel.js');
 
-/**
- * debtController.js
- *
- * @description :: Server-side logic for managing debts.
- */
 module.exports = {
 
-    /**
-     * debtController.list()
-     */
     list: function (req, res) {
         debtModel.find(function (err, debts) {
             if (err) {
@@ -22,9 +14,6 @@ module.exports = {
         });
     },
 
-    /**
-     * debtController.show()
-     */
     show: function (req, res) {
         var id = req.params.id;
         debtModel.findOne({_id: id}, function (err, debt) {
@@ -43,9 +32,6 @@ module.exports = {
         });
     },
 
-    /**
-     * debtController.create()
-     */
     create: function (req, res) {
         var debt = new debtModel({
 			name : req.body.name,
@@ -66,9 +52,6 @@ module.exports = {
         });
     },
 
-    /**
-     * debtController.update()
-     */
     update: function (req, res) {
         var id = req.params.id;
         debtModel.findOne({_id: id}, function (err, debt) {
@@ -84,11 +67,11 @@ module.exports = {
                 });
             }
 
-            debt.name = req.body.name ? req.body.name : debt.name;
+      debt.name = req.body.name ? req.body.name : debt.name;
 			debt.quantity = req.body.quantity ? req.body.quantity : debt.quantity;
 			debt.monthly = req.body.monthly ? req.body.monthly : debt.monthly;
 			debt.fin = req.body.fin ? req.body.fin : debt.fin;
-			
+
             debt.save(function (err, debt) {
                 if (err) {
                     return res.status(500).json({
@@ -102,9 +85,6 @@ module.exports = {
         });
     },
 
-    /**
-     * debtController.remove()
-     */
     remove: function (req, res) {
         var id = req.params.id;
         debtModel.findByIdAndRemove(id, function (err, debt) {

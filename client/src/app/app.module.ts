@@ -8,10 +8,12 @@ import {routes} from './routes';
 import { AppComponent } from './app.component';
 import { MySignupFormComponent } from './my-signup-form/my-signup-form.component';
 import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 import { AuthService } from './service/auth.service';
+import { UserService } from './service/user.service';
 import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
-import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { UserComponent } from './user/user.component';
     AppComponent,
     MySignupFormComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { UserComponent } from './user/user.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ AuthService , IsLoggedInService ],
+  providers: [ AuthService , IsLoggedInService, UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

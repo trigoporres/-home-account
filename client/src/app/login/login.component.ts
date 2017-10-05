@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     const {username, password } = this.loginInfo;
     this.auth.login(username, password)
        .subscribe(result =>
-         this.router.navigate(["/user"], result._id)
+         this.router.navigate(["/user/"+result._id]),
        );
     }
 

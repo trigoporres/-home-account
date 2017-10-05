@@ -1,15 +1,7 @@
 var projectModel = require('../models/projectModel.js');
 
-/**
- * projectController.js
- *
- * @description :: Server-side logic for managing projects.
- */
 module.exports = {
 
-    /**
-     * projectController.list()
-     */
     list: function (req, res) {
         projectModel.find(function (err, projects) {
             if (err) {
@@ -22,9 +14,6 @@ module.exports = {
         });
     },
 
-    /**
-     * projectController.show()
-     */
     show: function (req, res) {
         var id = req.params.id;
         projectModel.findOne({_id: id}, function (err, project) {
@@ -43,9 +32,6 @@ module.exports = {
         });
     },
 
-    /**
-     * projectController.create()
-     */
     create: function (req, res) {
         var project = new projectModel({
 			name : req.body.name,
@@ -65,9 +51,6 @@ module.exports = {
         });
     },
 
-    /**
-     * projectController.update()
-     */
     update: function (req, res) {
         var id = req.params.id;
         projectModel.findOne({_id: id}, function (err, project) {
@@ -84,9 +67,9 @@ module.exports = {
             }
 
             project.name = req.body.name ? req.body.name : project.name;
-			project.quantity = req.body.quantity ? req.body.quantity : project.quantity;
-			project.fin = req.body.fin ? req.body.fin : project.fin;
-			
+			      project.quantity = req.body.quantity ? req.body.quantity : project.quantity;
+			      project.fin = req.body.fin ? req.body.fin : project.fin;
+
             project.save(function (err, project) {
                 if (err) {
                     return res.status(500).json({
@@ -100,9 +83,6 @@ module.exports = {
         });
     },
 
-    /**
-     * projectController.remove()
-     */
     remove: function (req, res) {
         var id = req.params.id;
         projectModel.findByIdAndRemove(id, function (err, project) {

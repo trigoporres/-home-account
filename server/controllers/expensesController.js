@@ -1,15 +1,7 @@
 var expensesModel = require('../models/expensesModel.js');
 
-/**
- * expensesController.js
- *
- * @description :: Server-side logic for managing expensess.
- */
 module.exports = {
 
-    /**
-     * expensesController.list()
-     */
     list: function (req, res) {
         expensesModel.find(function (err, expensess) {
             if (err) {
@@ -22,9 +14,6 @@ module.exports = {
         });
     },
 
-    /**
-     * expensesController.show()
-     */
     show: function (req, res) {
         var id = req.params.id;
         expensesModel.findOne({_id: id}, function (err, expenses) {
@@ -43,19 +32,15 @@ module.exports = {
         });
     },
 
-    /**
-     * expensesController.create()
-     */
     create: function (req, res) {
         var expenses = new expensesModel({
-      creator : req.user._id,
-			name : req.body.name,
-			company : req.body.company,
-			quantity : req.body.quantity,
-			monthly : req.body.monthly,
-			fin : req.body.fin,
-			facture : req.body.facture
-
+          creator : req.user._id,
+			    name : req.body.name,
+			    company : req.body.company,
+			    quantity : req.body.quantity,
+			    monthly : req.body.monthly,
+			    fin : req.body.fin,
+			    facture : req.body.facture
         });
 
         expenses.save(function (err, expenses) {
@@ -69,9 +54,6 @@ module.exports = {
         });
     },
 
-    /**
-     * expensesController.update()
-     */
     update: function (req, res) {
         var id = req.params.id;
         expensesModel.findOne({_id: id}, function (err, expenses) {
@@ -107,9 +89,6 @@ module.exports = {
         });
     },
 
-    /**
-     * expensesController.remove()
-     */
     remove: function (req, res) {
         var id = req.params.id;
         expensesModel.findByIdAndRemove(id, function (err, expenses) {
