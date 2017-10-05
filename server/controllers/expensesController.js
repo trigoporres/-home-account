@@ -34,7 +34,7 @@ module.exports = {
 
     create: function (req, res) {
         var expenses = new expensesModel({
-          creator : req.user._id,
+          creator : req.body._id,
 			    name : req.body.name,
 			    company : req.body.company,
 			    quantity : req.body.quantity,
@@ -68,7 +68,7 @@ module.exports = {
                     message: 'No such expenses'
                 });
             }
-            creator = req.user._id;
+            creator = req.body._id;
             expenses.name = req.body.name ? req.body.name : expenses.name;
 			expenses.company = req.body.company ? req.body.company : expenses.company;
 			expenses.quantity = req.body.quantity ? req.body.quantity : expenses.quantity;

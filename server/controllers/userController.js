@@ -33,10 +33,12 @@ module.exports = {
     },
 
     create: function (req, res) {
+        console.log(req.body);
         var user = new userModel({
 			       first_name : req.body.first_name,
 			       last_name : req.body.last_name,
 			       email : req.body.email,
+             username: req.body.username,
 			       password : req.body.password,
 			       phone : req.body.phone,
 			       salary : req.body.salary,
@@ -73,6 +75,7 @@ module.exports = {
                user.first_name = req.body.first_name ;
 			         user.last_name = req.body.last_name ;
 			         user.email = req.body.email ;
+               user.username = req.body.username;
 			         user.password = req.body.password ;
 			         user.phone = req.body.phone ;
 			         user.salary = req.body.salary ;

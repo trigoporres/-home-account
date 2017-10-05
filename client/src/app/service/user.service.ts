@@ -27,8 +27,8 @@ export class UserService {
     return Observable.throw(e.json().message);
   }
 
-  update(first_name, last_name, email) {
-    return this.http.put(`${BASEURL}/:id`, {first_name, last_name, email}, this.options)
+  update(user) {
+    return this.http.put(`${BASEURL}/:id`, {user}, this.options)
       .map(res => res.json())
       .map(user => this.emitUserLoginEvent(user))
       .catch(this.handleError);
