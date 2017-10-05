@@ -58,6 +58,7 @@ module.exports = {
     },
 
     update: function (req, res) {
+      console.log(req);
         var id = req.params.id;
         userModel.findOne({_id: id}, function (err, user) {
             if (err) {
