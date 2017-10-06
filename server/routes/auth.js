@@ -4,6 +4,7 @@ const path = require('path');
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const debug = require('debug')("home-account:"+path.basename(__filename).split('.')[0]);
+const userController = require('../controllers/userController.js');
 
 var authRoutes = express.Router();
 
@@ -73,6 +74,16 @@ authRoutes.get('/loggedin', (req, res, next) => {
     return res.status(200).json(req.user);
   res.status(403).json({ message: 'Unauthorized' });
 });
+
+authRoutes.get('/user', userController.list);
+
+authRoutes.get('/user/:id', userController.show);
+
+authRoutes.post('/user', userController.create);
+
+authRoutes.put('/user/:id', userController.update);
+
+authRoutes.delete('user/:id', userController.remove);
 
 
 module.exports = authRoutes;

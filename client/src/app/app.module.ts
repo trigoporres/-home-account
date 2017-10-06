@@ -12,7 +12,6 @@ import { UserComponent } from './user/user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 
 import { AuthService } from './service/auth.service';
-import { UserService } from './service/user.service';
 import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
 
 
@@ -30,7 +29,7 @@ import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ AuthService , IsLoggedInService, UserService ],
+  providers: [ AuthService , IsLoggedInService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

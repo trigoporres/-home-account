@@ -2,6 +2,11 @@
   <p>First name : <strong>{{user.first_name}}</strong></p>
   <p>Last name : <strong>{{user.last_name}}</strong></p>
   <p>Email : <strong>{{user.email}}</strong></p>
+  <p *ngIf="user.phone">phone : <strong>{{user.phone}}</strong></p>
+  <p *ngIf="user.address">adress : <strong>{{user.address}}</strong></p>
+  <p *ngIf="user.salary">salary : <strong>{{user.salary}}</strong></p>
+
+
   <a routerLink="/user/{{user._id}}/edit">edit</a>
 
 </div>

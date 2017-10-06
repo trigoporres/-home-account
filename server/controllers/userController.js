@@ -58,8 +58,7 @@ module.exports = {
     },
 
     update: function (req, res) {
-      console.log(req.body)
-      console.log(req.params.id);
+      console.log("hola");
         var id = req.params.id;
         userModel.findOne({_id: id}, function (err, user) {
             if (err) {
@@ -73,7 +72,7 @@ module.exports = {
                     message: 'No such user'
                 });
             }
-
+              console.log(req.body);
                user.first_name = req.body.user.first_name ;
 			         user.last_name = req.body.user.last_name ;
 			         user.email = req.body.user.email ;

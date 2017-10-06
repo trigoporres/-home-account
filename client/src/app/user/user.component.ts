@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { AuthService } from '../service/auth.service'
-import { UserService } from '../service/user.service'
 import { Router } from '@angular/router'
 
 
@@ -12,7 +11,7 @@ import { Router } from '@angular/router'
 export class UserComponent implements OnInit {
 
   user:object;
-  constructor(public auth:AuthService, public userService:UserService, public router: Router ) {
+  constructor(public auth:AuthService, public router: Router ) {
 
   }
 

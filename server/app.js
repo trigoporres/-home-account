@@ -37,13 +37,11 @@ const authRoutes = require('./routes/auth');
 const debt = require('./routes/debtRoutes');
 const expenses = require('./routes/expensesRoutes');
 const project = require('./routes/projectRoutes');
-const user = require('./routes/userRoutes');
 
 app.use('/auth', authRoutes);
 app.use('/debt', debt);
 app.use('/expenses', expenses);
 app.use('/project', project);
-app.use('/user', user);
 app.all('/*', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });

@@ -1,4 +1,3 @@
-
 import { Injectable, EventEmitter } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Http} from '@angular/http';
@@ -10,8 +9,8 @@ const BASEURL = environment.BASEURL + "/auth";
 @Injectable()
 export class AuthService {
   public user:any;
-  private userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
-  private options = {withCredentials:true};
+  public userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
+  public options = {withCredentials:true};
 
   constructor(private http: Http) {
   }
@@ -50,11 +49,11 @@ export class AuthService {
         .catch(this.handleError);
     }
 
-    edit(id,user) {
-      console.log(id)
-      console.log(user)
-      return this.http.put(`${BASEURL}/user/${id}`,user, this.options)
-      .map((res) => res.json());
+    update(id, user) {
+      return this.http.put(`${BASEURL}/user/${id}`, {user}, this.options)
+        .map(res => res.json())
+        .map(user => this.emitUserLoginEvent(user))
+        .catch(this.handleError);
     }
 
     logout() {

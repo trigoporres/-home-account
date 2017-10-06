@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
-import { UserService } from '../service/user.service';
 import { Router } from '@angular/router'
 
 @Component({
@@ -23,7 +22,6 @@ export class UpdateUserComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private userService: UserService,
     private router: Router) {}
 
   ngOnInit() {
@@ -31,15 +29,12 @@ export class UpdateUserComponent implements OnInit {
   }
 
   update() {
-    console.log(this.updateInfo);
-    this.userService.update(this.updateInfo._id, this.updateInfo)
+    this.auth.update(this.updateInfo._id, this.updateInfo)
         .subscribe(
           (user) => this.successCb(user),
           (err) => this.errorCb(err)
 
         );
-
-
         this.router.navigate(['user/'+this.updateInfo._id])
   }
 
