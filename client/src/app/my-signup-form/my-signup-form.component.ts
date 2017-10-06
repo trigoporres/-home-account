@@ -25,7 +25,7 @@ export class MySignupFormComponent implements OnInit {
     password: "",
   };
 
-
+  user;
   error: any;
 
   constructor(public auth:AuthService, public router: Router) { }
