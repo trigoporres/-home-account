@@ -28,6 +28,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 require('./config/session.js')(app);
 require('./config/express')(app);
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(layouts);
 require('./passport/serializers');
 require('./passport/local');
 

@@ -29,7 +29,7 @@ export class UserService {
 
   update(user) {
     console.log(user)
-    return this.http.put(`${BASEURL}/:id`, {user}, this.options)
+    return this.http.put(`${BASEURL}/${user._id}`, {user}, this.options)
       .map(res => res.json())
       .map(user => this.emitUserLoginEvent(user))
       .catch(this.handleError);

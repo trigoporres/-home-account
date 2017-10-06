@@ -58,7 +58,7 @@ module.exports = {
     },
 
     update: function (req, res) {
-      console.log(req);
+      console.log(req.params.id);
         var id = req.params.id;
         userModel.findOne({_id: id}, function (err, user) {
             if (err) {
@@ -73,15 +73,15 @@ module.exports = {
                 });
             }
 
-               user.first_name = req.body.first_name ;
-			         user.last_name = req.body.last_name ;
-			         user.email = req.body.email ;
-               user.username = req.body.username;
-			         user.password = req.body.password ;
-			         user.phone = req.body.phone ;
-			         user.salary = req.body.salary ;
-			         user.address = req.body.address ;
-			         user.balance = req.body.balance;
+               user.first_name = req.body.user.first_name ;
+			         user.last_name = req.body.user.last_name ;
+			         user.email = req.body.user.email ;
+               user.username = req.body.user.username;
+			         user.password = req.body.user.password ;
+			         user.phone = req.body.user.phone ;
+			         user.salary = req.body.user.salary ;
+			         user.address = req.body.user.address ;
+			         user.balance = req.body.user.balance;
 
             user.save(function (err, user) {
                 if (err) {
