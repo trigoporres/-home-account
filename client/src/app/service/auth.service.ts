@@ -9,13 +9,11 @@ const BASEURL = environment.BASEURL + "/auth";
 
 @Injectable()
 export class AuthService {
-
-  private user:object;
+  public user:any;
   private userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
   private options = {withCredentials:true};
 
   constructor(private http: Http) {
-    this.isLoggedIn().subscribe();
   }
 
     public getLoginEventEmitter():EventEmitter<any>{
@@ -50,6 +48,13 @@ export class AuthService {
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
+    }
+
+    edit(id,user) {
+      console.log(id)
+      console.log(user)
+      return this.http.put(`${BASEURL}/user/${id}`,user, this.options)
+      .map((res) => res.json());
     }
 
     logout() {

@@ -9,38 +9,49 @@ import { Router } from '@angular/router'
   styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
-  user;
-  updateInfo;
+  user:any;
+  updateInfo = {
+    _id: "",
+    first_name: "",
+    last_name: "",
+    username: "",
+    email: "",
+    phone: "",
+    salary: ""
+  }
+  error:string;
 
-
-  constructor(public auth:AuthService, public userService: UserService, public router: Router) { }
+  constructor(
+    private auth: AuthService,
+    private userService: UserService,
+    private router: Router) {}
 
   ngOnInit() {
-    this.user = this.auth.getUser();
-    this.auth.getLoginEventEmitter()
-       .subscribe( user => this.user = user)
-       console.log(this.user)
-       this.updateInfo = {
-         _id: this.user._id,
-         first_name: this.user.first_name,
-         last_name: this.user.last_name,
-         username: this.user.username,
-         email: this.user.email,
-         phone: this.user.phone,
-         salary: this.user.salary
-       }
-       console.log(this.updateInfo)
+    this.successCb(this.auth.user);
   }
-
-
 
   update() {
-    console.log("me llamas")
-    this.userService.update(this.updateInfo)
-      .subscribe(user =>
-          this.router.navigate(["/user/"+user._id]),
-          )
-          console.log(this.updateInfo)
+    console.log(this.updateInfo);
+    this.userService.update(this.updateInfo._id, this.updateInfo)
+        .subscribe(
+          (user) => this.successCb(user),
+          (err) => this.errorCb(err)
+
+        );
+
+
+        this.router.navigate(['user/'+this.updateInfo._id])
   }
+
+  errorCb(err) {
+   this.error = err;
+   this.user = null;
+ }
+
+ successCb(user) {
+   this.updateInfo
+    = user;
+   this.error = null;
+ }
 
 }

@@ -11,11 +11,10 @@ export const routes: Routes = [
     { path: '',
       component: MySignupFormComponent,
     },
-    { path: 'user/:id',
-      component: UserComponent,
-    },
-    { path: 'edit',
-      component: UpdateUserComponent,
+    { path: 'user/:id', component: UserComponent,
+          children: [
+            {path: 'edit', component: UpdateUserComponent},
+          ]
     },
     {
       path: 'login',

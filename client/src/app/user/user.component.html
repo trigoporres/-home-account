@@ -2,6 +2,8 @@
   <p>First name : <strong>{{user.first_name}}</strong></p>
   <p>Last name : <strong>{{user.last_name}}</strong></p>
   <p>Email : <strong>{{user.email}}</strong></p>
+  <a routerLink="/user/{{user._id}}/edit">edit</a>
+
 </div>
-<a [routerLink]="['/edit']">edit</a>
 <button type="submit" (click)=logout() name="button">Logout</button>
+<router-outlet></router-outlet>
