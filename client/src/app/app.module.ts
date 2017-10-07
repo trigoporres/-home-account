@@ -14,6 +14,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { AuthService } from './service/auth.service';
 import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
 import { ProjectComponent } from './project/project.component';
+import { ExpensesComponent } from './expenses/expenses.component';
+import { DebtComponent } from './debt/debt.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ProjectComponent } from './project/project.component';
     LoginComponent,
     UserComponent,
     UpdateUserComponent,
-    ProjectComponent
+    ProjectComponent,
+    ExpensesComponent,
+    DebtComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+<form>
+  <h2> New Expenses </h2>
+
+  <label> Name </label>
+  <input type="text" [(ngModel)]="expensesInfo.name" name="name"/>
+  <br><br>
+
+  <label> Company </label>
+  <input type="text" [(ngModel)]="expensesInfo.company" name="company"/>
+  <br><br>
+
+  <label> Quantity </label>
+  <input type="text" [(ngModel)]="expensesInfo.fin" name="quantity"/>
+  <br><br>
+
+  <label> Monthly </label>
+  <input type="radio" [(ngModel)]="expensesInfo.fin" name="monthly"/>
+  <br><br>
+
+  <label> Finaly </label>
+  <input type="text" [(ngModel)]="expensesInfo.fin" name="finaly"/>
+  <br><br>
+
+  <label> Facture </label>
+  <input type="file" [(ngModel)]="expensesInfo.fin" name="facture"/>
+  <br><br>
+
+  <button (click)="create()"> Create project </button>
+</form>

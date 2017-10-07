@@ -6,6 +6,9 @@ import {LoginComponent} from './login/login.component';
 import {UserComponent} from './user/user.component'
 import {UpdateUserComponent} from './update-user/update-user.component'
 import {ProjectComponent} from './project/project.component'
+import {ExpensesComponent} from './expenses/expenses.component'
+import {DebtComponent} from './debt/debt.component'
+
 
 export const routes: Routes = [
     { path: '',
@@ -14,7 +17,9 @@ export const routes: Routes = [
     { path: 'user/:id', component: UserComponent,
           children: [
             {path: 'edit', component: UpdateUserComponent},
-            {path: 'project', component: ProjectComponent}
+            {path: 'project', component: ProjectComponent},
+            {path: 'expenses', component: ExpensesComponent},
+            {path: 'debt', component: DebtComponent}
           ]
     },
     {

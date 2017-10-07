@@ -8,7 +8,15 @@
   <button type="button" name="button">
     <a routerLink="/user/{{user._id}}/project">Project</a>
   </button>
-  <h3>Saldo actual {{user.salary}} €</h3>
+
+  <button type="button" name="button">
+    <a routerLink="/user/{{user._id}}/expenses">Expenses</a>
+  </button>
+
+  <button type="button" name="button">
+    <a routerLink="/user/{{user._id}}/debt">Debt</a>
+  </button>
+  <h3>Saldo actual {{user.salary}} </h3>
   <div class="userDate">
     <p>First name : <strong>{{user.first_name}}</strong></p>
     <p>Last name : <strong>{{user.last_name}}</strong></p>
