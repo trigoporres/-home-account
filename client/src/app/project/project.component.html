@@ -1,0 +1,17 @@
+<form>
+  <h2> New Project </h2>
+
+  <label> Name </label>
+  <input type="text" [(ngModel)]="projectInfo.name" name="name"/>
+  <br><br>
+
+  <label> Quantity </label>
+  <input type="text" [(ngModel)]="projectInfo.quantity" name="quantity"/>
+  <br><br>
+
+  <label> Fin </label>
+  <input type="date" [(ngModel)]="projectInfo.fin" name="fin"/>
+  <br><br>
+
+  <button (click)="create()"> Create project </button>
+</form>

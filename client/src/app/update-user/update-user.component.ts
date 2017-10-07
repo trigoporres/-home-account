@@ -16,7 +16,8 @@ export class UpdateUserComponent implements OnInit {
     username: "",
     email: "",
     phone: "",
-    salary: ""
+    salary: "",
+    balance: "",
   }
   error:string;
 

@@ -43,7 +43,7 @@ module.exports = {
 			       phone : req.body.phone,
 			       salary : req.body.salary,
 			       address : req.body.address,
-			       balance : req.body.balance
+			       balance : req.body.salary
            });
 
         user.save(function (err, user) {

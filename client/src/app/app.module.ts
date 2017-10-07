@@ -13,6 +13,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 
 import { AuthService } from './service/auth.service';
 import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
+import { ProjectComponent } from './project/project.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
     MySignupFormComponent,
     LoginComponent,
     UserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,

@@ -8,9 +8,8 @@ var userSchema = new Schema({
 	'username': String,
 	'password' : String,
 	'phone' : Number,
-	'salary' : Number,
+	'salary' : String,
 	'address' : String,
-	'gastos' : Array,
 	'balance' : Number,
 },
 {

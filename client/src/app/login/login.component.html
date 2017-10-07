@@ -1,7 +1,7 @@
 <form *ngIf="!user">
-  <h2> login </h2>
+  <h2> Login </h2>
 
-  <label> User name </label>
+  <label> User Name </label>
   <input type="text" [(ngModel)]="loginInfo.username" name="username"/>
   <br><br>
 
@@ -9,6 +9,6 @@
   <input type="password" [(ngModel)]="loginInfo.password" name="password"/>
   <br><br>
 
-  <button type="submit" (click)="login()" > login </button>
-  <a [routerLink]="['']">signup</a>
+  <button type="submit" (click)="login()" > Login </button>
+  <p> Do you have not an account? <a [routerLink]="['']"> Signup</a></p>
 </form>

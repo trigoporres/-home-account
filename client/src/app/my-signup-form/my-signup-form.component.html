@@ -13,7 +13,7 @@
   <input type="text" [(ngModel)]="signupInfo.email" name="email"/>
   <br><br>
 
-  <label> User name </label>
+  <label> User Name </label>
   <input type="text" [(ngModel)]="signupInfo.username" name="username"/>
   <br><br>
 
@@ -21,6 +21,7 @@
   <input type="password" [(ngModel)]="signupInfo.password" name="password"/>
   <br><br>
 
-  <button (click)="signup()"> signup </button>
-  <a [routerLink]="['/login']">Login</a>
+  <button (click)="signup()"> Signup </button>
+  <br>
+  <p>Do you already have an account? <a [routerLink]="['/login']"> Login</a></p>
 </form>
