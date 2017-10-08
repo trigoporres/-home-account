@@ -35,4 +35,6 @@ export class ProjectComponent implements OnInit {
     this.router.navigate(['user/'+this.user._id])
   }
 
+
+
 }

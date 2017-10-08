@@ -6,18 +6,27 @@ import {environment} from '../../environments/environment';
 
 const BASEURL = environment.BASEURL;
 
+
 @Injectable()
 export class ProjectService {
+  public project:any;
   public user:any;
   public options = {withCredentials:true};
 
   constructor(private http: Http) { }
 
   create(project,user) {
-    console.log(user._id)
     return this.http.post(`${BASEURL}/user/${user.id}/project`, {project,user}, this.options)
       .map(res => res.json())
-      .subscribe( res=> console.log("va"))
+      .subscribe()
   }
+
+  show(user){
+    return this.http.get(`${BASEURL}/user/${user}/project`, this.options)
+      .map(res=> res.json())
+  }
+
+  
+
 
 }

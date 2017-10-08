@@ -14,9 +14,12 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { AuthService } from './service/auth.service';
 import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
 import { ProjectService } from './service/project.service';
+
+
 import { ProjectComponent } from './project/project.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { DebtComponent } from './debt/debt.component';
+import { ListPorjectComponent } from './list-porject/list-porject.component';
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { DebtComponent } from './debt/debt.component';
     UpdateUserComponent,
     ProjectComponent,
     ExpensesComponent,
-    DebtComponent
+    DebtComponent,
+    ListPorjectComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,8 @@ import {UpdateUserComponent} from './update-user/update-user.component'
 import {ProjectComponent} from './project/project.component'
 import {ExpensesComponent} from './expenses/expenses.component'
 import {DebtComponent} from './debt/debt.component'
+import {ListPorjectComponent} from './list-porject/list-porject.component'
+
 
 
 export const routes: Routes = [
@@ -18,6 +20,7 @@ export const routes: Routes = [
           children: [
             {path: 'edit', component: UpdateUserComponent},
             {path: 'project', component: ProjectComponent},
+            {path: 'project/:id', component: ListPorjectComponent },
             {path: 'expenses', component: ExpensesComponent},
             {path: 'debt', component: DebtComponent}
           ]

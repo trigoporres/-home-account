@@ -13,5 +13,10 @@ button{
 .container{
   width: 85%;
   margin:0 auto;
-  text-align: center;
+}
+
+.project{
+  border: 1px solid green;
+  width: 33%;
+  float: left;
 }
