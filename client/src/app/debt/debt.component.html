@@ -2,20 +2,20 @@
   <h2> New Expenses </h2>
 
   <label> Name </label>
-  <input type="text" [(ngModel)]="expensesInfo.name" name="name"/>
+  <input type="text" [(ngModel)]="debtInfo.name" name="name"/>
   <br><br>
 
   <label> Quantity </label>
-  <input type="text" [(ngModel)]="expensesInfo.fin" name="quantity"/>
+  <input type="text" [(ngModel)]="debtInfo.quantity" name="quantity"/>
   <br><br>
 
-  <label> Monthly </label>
+  <!-- <label> Monthly </label>
   <input type="radio" [(ngModel)]="expensesInfo.fin" name="monthly"/>
-  <br><br>
+  <br><br> -->
 
   <label> Finaly </label>
-  <input type="text" [(ngModel)]="expensesInfo.fin" name="finaly"/>
+  <input type="date" [(ngModel)]="debtInfo.finaly" name="finaly"/>
   <br><br>
 
-  <button (click)="create()"> Create project </button>
+  <button type="button" (click)="create()"> Create project </button>
 </form>

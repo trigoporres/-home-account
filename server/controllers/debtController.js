@@ -33,11 +33,12 @@ module.exports = {
     },
 
     create: function (req, res) {
+      console.log(req.body.name)
         var debt = new debtModel({
-			name : req.body.name,
-			quantity : req.body.quantity,
-			monthly : req.body.monthly,
-			fin : req.body.fin
+			name : req.body.debt.name,
+			quantity : req.body.debt.quantity,
+			//monthly : req.body.monthly,
+			fin : req.body.debt.finaly
 
         });
 

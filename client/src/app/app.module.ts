@@ -15,6 +15,7 @@ import { AuthService } from './service/auth.service';
 import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
 import { ProjectService } from './service/project.service';
 import { ExpensesService } from './service/expenses.service';
+import { DebtService } from './service/debt.service';
 
 
 import { ProjectComponent } from './project/project.component';
@@ -41,7 +42,7 @@ import { ListPorjectComponent } from './list-porject/list-porject.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ AuthService , IsLoggedInService, ProjectService, ExpensesService],
+  providers: [ AuthService , IsLoggedInService, ProjectService, ExpensesService, DebtService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

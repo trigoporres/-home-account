@@ -39,7 +39,7 @@ const expenses = require('./routes/expensesRoutes');
 const project = require('./routes/projectRoutes');
 
 app.use('/auth', authRoutes);
-app.use('/debt', debt);
+app.use('/user/:id/debt', debt);
 app.use('/user/:id/expenses', expenses);
 app.use('/user/:id/project', project);
 app.all('/*', function (req, res) {
