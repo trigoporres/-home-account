@@ -33,8 +33,9 @@ module.exports = {
     },
 
     create: function (req, res) {
+      console.log(req.body);
         var expenses = new expensesModel({
-          creator : req.user._id,
+          creator : req.body.creator,
 			    name : req.body.name,
 			    company : req.body.company,
 			    quantity : req.body.quantity,

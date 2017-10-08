@@ -23,7 +23,7 @@ interface expensesInfo{
 export class ExpensesComponent implements OnInit {
   user:any;
   expensesInfo = {
-    creator: this.user._id,
+    creator: "",
   	name : "",
   	company : "",
   	quantity : "",
@@ -39,8 +39,10 @@ export class ExpensesComponent implements OnInit {
 
   create() {
     this.user = this.auth.getUser();
-    const { name, company, quantity, monthly, fin, facture} = this.expensesInfo;
-    this.expenses.create(this.expensesInfo,this.user)
+    this.expensesInfo.creator = this.user._id;
+    const { name, company, quantity, fin} = this.expensesInfo;
+    console.log(this.expensesInfo)
+    this.expenses.create(this.expensesInfo)
     this.router.navigate(['user/'+this.user._id])
   }
 

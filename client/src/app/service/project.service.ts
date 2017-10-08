@@ -16,7 +16,7 @@ export class ProjectService {
   constructor(private http: Http) { }
 
   create(project,user) {
-    return this.http.post(`${BASEURL}/user/${user.id}/project`, {project,user}, this.options)
+    return this.http.post(`${BASEURL}/user/${user._id}/project`, {project,user}, this.options)
       .map(res => res.json())
       .subscribe()
   }
@@ -26,7 +26,7 @@ export class ProjectService {
       .map(res=> res.json())
   }
 
-  
+
 
 
 }

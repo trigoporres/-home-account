@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+
 import { ProjectService } from '../service/project.service'
 import { AuthService } from '../service/auth.service'
 
-import { Router } from '@angular/router'
 
 interface projectInfo{
   name: string,
