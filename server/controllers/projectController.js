@@ -33,10 +33,10 @@ module.exports = {
     },
 
     create: function (req, res) {
-        var project = new projectModel({
-			name : req.body.name,
-			quantity : req.body.quantity,
-			fin : req.body.fin
+      var project = new projectModel({
+			name : req.body.project.name,
+			quantity : req.body.project.quantity,
+			fin : req.body.project.fin
 
         });
 

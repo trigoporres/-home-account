@@ -83,7 +83,7 @@ authRoutes.post('/user', userController.create);
 
 authRoutes.put('/user/:id', userController.update);
 
-authRoutes.delete('user/:id', userController.remove);
+authRoutes.delete('/user/:id', userController.remove);
 
 
 module.exports = authRoutes;

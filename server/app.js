@@ -41,7 +41,7 @@ const project = require('./routes/projectRoutes');
 app.use('/auth', authRoutes);
 app.use('/debt', debt);
 app.use('/expenses', expenses);
-app.use('/project', project);
+app.use('/user/:id/project', project);
 app.all('/*', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });

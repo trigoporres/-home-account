@@ -13,6 +13,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 
 import { AuthService } from './service/auth.service';
 import { IsLoggedInService } from './service/is-logged-in.canactivate.service';
+import { ProjectService } from './service/project.service';
 import { ProjectComponent } from './project/project.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { DebtComponent } from './debt/debt.component';
@@ -35,7 +36,7 @@ import { DebtComponent } from './debt/debt.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ AuthService , IsLoggedInService],
+  providers: [ AuthService , IsLoggedInService, ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
