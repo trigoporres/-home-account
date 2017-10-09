@@ -16,7 +16,6 @@ export class ExpensesService {
   constructor(private http: Http) { }
 
   create(expenses){
-    console.log(`${BASEURL}/user/${expenses.creator}/expenses`);
     return this.http.post(`${BASEURL}/user/${expenses.creator}/expenses`,{expenses}, this.options)
       .map(res => res.json())
       .subscribe()

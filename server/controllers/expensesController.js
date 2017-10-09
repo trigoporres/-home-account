@@ -51,6 +51,10 @@ module.exports = {
                     error: err
                 });
             }
+            // User.findOneandUdate(req.user.id).
+            // then(result =>{
+            //
+            // })
             return res.status(201).json(expenses);
         });
     },

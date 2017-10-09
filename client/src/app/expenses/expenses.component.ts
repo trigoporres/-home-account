@@ -41,7 +41,6 @@ export class ExpensesComponent implements OnInit {
     this.user = this.auth.getUser();
     this.expensesInfo.creator = this.user._id;
     const { name, company, quantity, fin} = this.expensesInfo;
-    console.log(this.expensesInfo)
     this.expenses.create(this.expensesInfo)
     this.router.navigate(['user/'+this.user._id])
   }
