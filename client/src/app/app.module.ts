@@ -23,6 +23,7 @@ import { ExpensesComponent } from './expenses/expenses.component';
 import { DebtComponent } from './debt/debt.component';
 import { ListPorjectComponent } from './list-porject/list-porject.component';
 import { FormComponent } from './form/form.component';
+import { ListExpensesComponent } from './list-expenses/list-expenses.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { FormComponent } from './form/form.component';
     ExpensesComponent,
     DebtComponent,
     ListPorjectComponent,
-    FormComponent
+    FormComponent,
+    ListExpensesComponent
   ],
   imports: [
     BrowserModule,

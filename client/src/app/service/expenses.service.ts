@@ -25,4 +25,9 @@ export class ExpensesService {
     return this.http.get(`${BASEURL}/user/${user}/expenses`, this.options)
       .map(res=> res.json())
   }
+
+  delete(user, id){
+    return this.http.delete(`${BASEURL}/user/${user}/expenses/${id}`, this.options)
+      .map(res=> res.json())
+  }
 }
