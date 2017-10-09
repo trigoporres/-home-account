@@ -1,16 +1,16 @@
 <div *ngIf="user">
   <button type="submit" (click)=logout() name="button">Logout</button>
   <button type="button" name="button">
-    <a routerLink="/user/{{user._id}}/edit">EDIT</a>
+    <a routerLink="/user/{{user._id}}/form/edit">EDIT</a>
   </button>
   <button type="button" name="button">
-    <a routerLink="/user/{{user._id}}/project">Project</a>
+    <a routerLink="/user/{{user._id}}/form/project">Project</a>
   </button>
   <button type="button" name="button">
-    <a routerLink="/user/{{user._id}}/expenses">Expenses</a>
+    <a routerLink="/user/{{user._id}}/form/expenses">Expenses</a>
   </button>
   <button type="button" name="button">
-    <a routerLink="/user/{{user._id}}/debt">Debt</a>
+    <a routerLink="/user/{{user._id}}/form/debt">Debt</a>
   </button>
 
   <h3>Saldo actual {{user.salary}} </h3>
@@ -31,5 +31,4 @@
     </div>
   </div>
 <br><br><br>
-  <router-outlet></router-outlet>
 </div>

@@ -19,7 +19,6 @@ export class UserComponent implements OnInit {
   constructor(public auth:AuthService, public router: Router, public proj:ProjectService, public route:ActivatedRoute) { }
 
   ngOnInit() {
-    console.log("entro")
     this.user = this.auth.getUser();
     this.route.params
           .subscribe((params) => {

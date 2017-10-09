@@ -9,6 +9,7 @@ import {ProjectComponent} from './project/project.component'
 import {ExpensesComponent} from './expenses/expenses.component'
 import {DebtComponent} from './debt/debt.component'
 import {ListPorjectComponent} from './list-porject/list-porject.component'
+import {FormComponent} from './form/form.component'
 
 
 
@@ -16,14 +17,15 @@ export const routes: Routes = [
     { path: '',
       component: MySignupFormComponent,
     },
-    { path: 'user/:id', component: UserComponent,
-          children: [
-            {path: 'edit', component: UpdateUserComponent},
-            {path: 'project', component: ProjectComponent},
-            {path: 'project/:id', component: ListPorjectComponent },
-            {path: 'expenses', component: ExpensesComponent},
-            {path: 'debt', component: DebtComponent}
-          ]
+    { path: 'user/:id', component: UserComponent,},
+    {path: 'user/:id/form', component: FormComponent,
+      children: [
+        {path: 'edit', component: UpdateUserComponent},
+        {path: 'project', component: ProjectComponent},
+        {path: 'project/:id', component: ListPorjectComponent },
+        {path: 'expenses', component: ExpensesComponent},
+        {path: 'debt', component: DebtComponent}
+      ]
     },
     {
       path: 'login',
