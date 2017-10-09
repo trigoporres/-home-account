@@ -35,13 +35,13 @@ module.exports = {
     create: function (req, res) {
       console.log(req.body);
         var expenses = new expensesModel({
-          creator : req.body.creator,
-			    name : req.body.name,
-			    company : req.body.company,
-			    quantity : req.body.quantity,
-			    monthly : req.body.monthly,
-			    fin : req.body.fin,
-			    facture : req.body.facture
+          creator : req.body.expenses.creator,
+			    name : req.body.expenses.name,
+			    company : req.body.expenses.company,
+			    quantity : req.body.expenses.quantity,
+			    monthly : req.body.expenses.monthly,
+			    fin : req.body.expenses.fin,
+			    facture : req.body.expenses.facture
         });
 
         expenses.save(function (err, expenses) {
