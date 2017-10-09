@@ -35,7 +35,10 @@ export class ListPorjectComponent implements OnInit {
     console.log('/user/'+this.user._id+'/list')
     this.proj.delete(this.user._id, id)
         .subscribe(()=>
-        this.router.navigate(['/user/'+this.user._id+'/list'])
+        this.route.params
+              .subscribe((params) => {
+                this.proj.show(params.id).subscribe(project => {this.successCb(project)})
+              })
       )}
 
 

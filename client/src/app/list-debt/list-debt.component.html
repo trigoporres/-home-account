@@ -1,0 +1,11 @@
+<div *ngIf="debt">
+  <div *ngFor="let s of debts, let j = index" class="project">
+      <p>debt {{j}}</p>
+      <p>{{s.name}}</p>
+      <p>{{s.quantity}}</p>
+      <button type="button" name="button" (click)=delete(s._id)>Delete</button>
+  </div>
+</div>
+<button type="button" name="button">
+  <a routerLink="/user/{{user._id}}">Profile</a>
+</button>

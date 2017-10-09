@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { AuthService } from '../service/auth.service'
 import { ProjectService } from '../service/project.service'
 import { ExpensesService } from '../service/expenses.service'
+import { DebtService } from '../service/debt.service'
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,12 +14,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
   user:any;
+  debts:any;
   project:any;
   error:any
   expenses:any;
-  constructor(public auth:AuthService, public router: Router, public proj:ProjectService, public route:ActivatedRoute, public expen:ExpensesService) { }
+  constructor(public auth:AuthService, public router: Router, public proj:ProjectService, public route:ActivatedRoute, public expen:ExpensesService, public debt:DebtService) { }
 
   ngOnInit() {
   this.auth.isLoggedIn().subscribe(result =>{
@@ -32,6 +33,10 @@ export class UserComponent implements OnInit {
     this.route.params
           .subscribe((params) => {
             this.expen.show(params.id).subscribe(expenses => this.expenses=expenses)
+          })
+    this.route.params
+          .subscribe((params) => {
+            this.debt.show(params.id).subscribe(debt => this.debts=debt)
           })
     this.auth.getLoginEventEmitter()
         .subscribe( user =>{

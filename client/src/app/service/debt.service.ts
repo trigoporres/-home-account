@@ -15,8 +15,17 @@ export class DebtService {
   constructor(private http: Http) { }
 
   create(debt,user){
-    console.log(debt,user);
     return this.http.post(`${BASEURL}/user/${user._id}/debt`,{debt,user}, this.options)
       .map(res => res.json())
       }
+
+  show(user){
+    return this.http.get(`${BASEURL}/user/${user}/debt`, this.options)
+    .map(res=> res.json())
+  }
+
+  delete(user, id){
+    return this.http.delete(`${BASEURL}/user/${user}/debt/${id}`, this.options)
+      .map(res=> res.json())
+  }
 }

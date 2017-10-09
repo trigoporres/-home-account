@@ -24,6 +24,7 @@ import { DebtComponent } from './debt/debt.component';
 import { ListPorjectComponent } from './list-porject/list-porject.component';
 import { FormComponent } from './form/form.component';
 import { ListExpensesComponent } from './list-expenses/list-expenses.component';
+import { ListDebtComponent } from './list-debt/list-debt.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ListExpensesComponent } from './list-expenses/list-expenses.component';
     DebtComponent,
     ListPorjectComponent,
     FormComponent,
-    ListExpensesComponent
+    ListExpensesComponent,
+    ListDebtComponent
   ],
   imports: [
     BrowserModule,

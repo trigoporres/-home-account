@@ -32,14 +32,22 @@
   <a routerLink="/user/{{user._id}}/list">Project List</a>
 <br><br><br><br><br>
   <div *ngIf="expenses">
-    <div *ngFor="let p of expenses | slice:0:3, let i = index" class="project">
-        <p>expenses {{i}}</p>
+    <div *ngFor="let p of expenses | slice:0:3, let m = index" class="project">
+        <p>expenses {{m}}</p>
         <p>{{p.name}}</p>
         <p>{{p.quantity}}</p>
     </div>
   </div>
   <a routerLink="/user/{{user._id}}/listExp">Expenses List</a>
+<br><br><br><br>
+  <div *ngIf="debts">
+    <div *ngFor="let s of debts | slice:0:3, let j = index" class="project">
+        <p>debt {{j}}</p>
+        <p>{{s.name}}</p>
+        <p>{{s.quantity}}</p>
+    </div>
+  </div>
+  <a routerLink="/user/{{user._id}}/listDebt">Debt List</a>
 
 <br><br><br>
 </div>
-<template #loading>Loading User Data...</template>

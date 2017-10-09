@@ -31,7 +31,6 @@ export class DebtComponent implements OnInit {
   create() {
     this.user = this.auth.getUser();
     const { name, quantity, fin} = this.debtInfo;
-    console.log(this.debtInfo)
     this.debt.create(this.debtInfo,this.user)
 			.subscribe( () => this.router.navigate(['user/'+this.user._id]));
 }
