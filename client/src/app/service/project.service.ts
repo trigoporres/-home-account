@@ -18,7 +18,6 @@ export class ProjectService {
   create(project,user) {
     return this.http.post(`${BASEURL}/user/${user._id}/project`, {project,user}, this.options)
       .map(res => res.json())
-      .subscribe()
   }
 
   show(user){

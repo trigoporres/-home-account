@@ -17,11 +17,13 @@ export class ListExpensesComponent implements OnInit {
   constructor(public auth:AuthService, public router: Router, public route:ActivatedRoute, public exp:ExpensesService) { }
 
   ngOnInit() {
+    console.log("entro");
     this.user = this.auth.getUser();
 
     this.route.params
           .subscribe((params) => {
-            this.exp.show(params.id).subscribe(expenses => {this.successCb(expenses)})
+            this.exp.show(params.id).subscribe(expenses => {
+                  this.successCb(expenses)})
           })
   }
 
@@ -33,8 +35,8 @@ export class ListExpensesComponent implements OnInit {
   delete(id){
     console.log('/user/'+this.user._id+'/list')
     this.exp.delete(this.user._id, id)
-        .subscribe()
-        this.router.navigate(['/user/'+this.user._id+'/listExp'])
-  }
+        .subscribe(()=>
+        this.router.navigate(['/user/'+this.user._id])
+      )}
 
 }

@@ -33,7 +33,7 @@ export class UpdateUserComponent implements OnInit {
     this.auth.update(this.updateInfo._id, this.updateInfo)
         .subscribe(
           (user) => this.successCb(user),
-          (err) => this.errorCb(err)
+          (err) => this.errorCb(err),
         );
         this.router.navigate(['user/'+this.updateInfo._id])
   }

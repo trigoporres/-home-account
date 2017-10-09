@@ -1,4 +1,4 @@
-<div *ngIf="user">
+<div *ngIf="user ">
   <button type="submit" (click)=logout() name="button">Logout</button>
   <button type="button" name="button">
     <a routerLink="/user/{{user._id}}/form/edit">EDIT</a>
@@ -42,3 +42,4 @@
 
 <br><br><br>
 </div>
+<template #loading>Loading User Data...</template>

@@ -33,8 +33,10 @@ export class ProjectComponent implements OnInit {
     this.user = this.auth.getUser();
     const { name, quantity, fin} = this.projectInfo;
     this.project.create(this.projectInfo,this.user)
-    this.router.navigate(['user/'+this.user._id])
-  }
+      .subscribe(() =>
+        this.router.navigate(['user/'+this.user._id]
+      )
+  )}
 
 
 
