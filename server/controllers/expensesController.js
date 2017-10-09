@@ -1,4 +1,5 @@
 var expensesModel = require('../models/expensesModel.js');
+var userModel = require('../models/userModel.js');
 
 module.exports = {
 
@@ -44,18 +45,15 @@ module.exports = {
 			    facture : req.body.expenses.facture
         });
 
-        expenses.save(function (err, expenses) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when creating expenses',
-                    error: err
-                });
-            }
-            // User.findOneandUdate(req.user.id).
-            // then(result =>{
-            //
-            // })
-            return res.status(201).json(expenses);
+        expenses.save()
+        .then(expenses => {
+          console.log("vamos a hacer busqueda de expenses");
+            userModel.findOne({_id: expenses.creator})
+            .then(user =>{
+              user.salary = user.salary - expenses.quantity ;
+              user.save()
+                .then( ()=> res.status(200).json(user));
+            });
         });
     },
 

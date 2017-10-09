@@ -1,5 +1,12 @@
-<p>
-  list-porject works!
-</p>
-
-{{project}}
+<div *ngIf="project">
+  <div *ngFor="let e of project, let i = index" class="project">
+      <p>proyect {{i}}</p>
+      <p>{{e.name}}</p>
+      <p>{{e.quantity}}</p>
+      <button type="button" name="button" (click)=delete(e._id)>Delete</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<button type="button" name="button">
+  <a routerLink="/user/{{user._id}}">Profile</a>
+</button>

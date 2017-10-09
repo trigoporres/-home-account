@@ -34,7 +34,6 @@ export class UpdateUserComponent implements OnInit {
         .subscribe(
           (user) => this.successCb(user),
           (err) => this.errorCb(err)
-
         );
         this.router.navigate(['user/'+this.updateInfo._id])
   }

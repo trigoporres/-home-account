@@ -20,4 +20,9 @@ export class ExpensesService {
       .map(res => res.json())
       .subscribe()
       }
+
+  show(user){
+    return this.http.get(`${BASEURL}/user/${user}/expenses`, this.options)
+      .map(res=> res.json())
+  }
 }

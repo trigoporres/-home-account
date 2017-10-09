@@ -85,6 +85,7 @@ module.exports = {
 
     remove: function (req, res) {
         var id = req.params.id;
+        console.log(id)
         projectModel.findByIdAndRemove(id, function (err, project) {
             if (err) {
                 return res.status(500).json({

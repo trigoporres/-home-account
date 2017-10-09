@@ -17,12 +17,12 @@ export const routes: Routes = [
     { path: '',
       component: MySignupFormComponent,
     },
-    { path: 'user/:id', component: UserComponent,},
+    { path: 'user/:id', component: UserComponent},
+    { path: 'user/:id/list', component: ListPorjectComponent},
     {path: 'user/:id/form', component: FormComponent,
       children: [
         {path: 'edit', component: UpdateUserComponent},
         {path: 'project', component: ProjectComponent},
-        {path: 'project/:id', component: ListPorjectComponent },
         {path: 'expenses', component: ExpensesComponent},
         {path: 'debt', component: DebtComponent}
       ]

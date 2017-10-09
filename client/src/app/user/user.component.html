@@ -23,11 +23,19 @@
     <p *ngIf="user.salary">salary : <strong>{{user.salary}}</strong></p>
   </div>
   <div *ngIf="project">
-    <div *ngFor="let e of project, let i = index" class="project">
-      <p>proyect {{i}}</p>
-      <p>{{e.name}}</p>
-      <p>{{e.quantity}}</p>
-      <p>{{e.fin}}</p>
+    <div *ngFor="let e of project | slice:0:3, let i = index" class="project">
+        <p>proyect {{i}}</p>
+        <p>{{e.name}}</p>
+        <p>{{e.quantity}}</p>
+    </div>
+  </div>
+  <a routerLink="/user/{{user._id}}/list">Project List</a>
+<br><br><br><br><br>
+  <div *ngIf="expenses">
+    <div *ngFor="let p of expenses | slice:0:3, let i = index" class="project">
+        <p>expenses {{i}}</p>
+        <p>{{p.name}}</p>
+        <p>{{p.quantity}}</p>
     </div>
   </div>
 <br><br><br>

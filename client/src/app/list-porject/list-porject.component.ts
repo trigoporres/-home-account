@@ -11,11 +11,32 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListPorjectComponent implements OnInit {
   project:any;
-  error:any
+  error:any;
+  user:any;
 
-  constructor(public auth:AuthService, public router: Router, public proj:ProjectService, public route:ActivatedRoute) { }
+  constructor(public auth:AuthService, public router: Router, public route:ActivatedRoute, public proj:ProjectService) { }
 
-  ngOnInit() {}
-  
+  ngOnInit() {
+    console.log("Entro")
+    this.user = this.auth.getUser();
+
+    this.route.params
+          .subscribe((params) => {
+            this.proj.show(params.id).subscribe(project => {this.successCb(project)})
+          })
+  }
+
+  successCb(value) {
+    this.project= value;
+    this.error = null;
+  }
+
+  delete(id){
+    console.log('/user/'+this.user._id+'/list')
+    this.proj.delete(this.user._id, id)
+        .subscribe()
+        this.router.navigate(['/user/'+this.user._id+'/list'])
+  }
+
 
 }
