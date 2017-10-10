@@ -3,7 +3,8 @@ var debtModel = require('../models/debtModel.js');
 module.exports = {
 
     list: function (req, res) {
-        debtModel.find(function (err, debts) {
+      var id = req.params.id;
+        debtModel.findById(id, function (err, debts) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting debt.',
@@ -16,7 +17,7 @@ module.exports = {
 
     show: function (req, res) {
         var id = req.params.id;
-        debtModel.findOne({_id: id}, function (err, debt) {
+        debtModel.findById(id, function (err, debt) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting debt.',
@@ -34,6 +35,7 @@ module.exports = {
 
     create: function (req, res) {
         var debt = new debtModel({
+      creator : req.body.debt.creator,
 			name : req.body.debt.name,
 			quantity : req.body.debt.quantity,
 			//monthly : req.body.monthly,
@@ -66,7 +68,7 @@ module.exports = {
                     message: 'No such debt'
                 });
             }
-
+      debt.creator = req.user._id;
       debt.name = req.body.name ? req.body.name : debt.name;
 			debt.quantity = req.body.quantity ? req.body.quantity : debt.quantity;
 			debt.monthly = req.body.monthly ? req.body.monthly : debt.monthly;

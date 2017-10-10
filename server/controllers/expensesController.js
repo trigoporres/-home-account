@@ -4,7 +4,8 @@ var userModel = require('../models/userModel.js');
 module.exports = {
 
     list: function (req, res) {
-        expensesModel.find(function (err, expensess) {
+        var id = req.params.id;
+        expensesModel.findById(id, function (err, expensess) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting expenses.',

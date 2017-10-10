@@ -2,18 +2,6 @@ var userModel = require('../models/userModel.js');
 
 module.exports = {
 
-    list: function (req, res) {
-        userModel.find(function (err, users) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting user.',
-                    error: err
-                });
-            }
-            return res.json(users);
-        });
-    },
-
     show: function (req, res) {
         var id = req.params.id;
         userModel.findOne({_id: id}, function (err, user) {

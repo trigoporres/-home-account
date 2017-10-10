@@ -70,13 +70,10 @@ authRoutes.get('/logout', (req, res, next) => {
 });
 
 authRoutes.get('/loggedin', (req, res, next) => {
-  console.log(req.user);
   if (req.isAuthenticated())
     return res.status(200).json(req.user);
   res.status(403).json({ message: 'Unauthorized' });
 });
-
-authRoutes.get('/user', userController.list);
 
 authRoutes.get('/user/:id', userController.show);
 

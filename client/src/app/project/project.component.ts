@@ -6,6 +6,7 @@ import { AuthService } from '../service/auth.service'
 
 
 interface projectInfo{
+  creator: string,
   name: string,
   quantity: string,
   fin: string
@@ -18,7 +19,9 @@ interface projectInfo{
 })
 export class ProjectComponent implements OnInit {
   user:any;
+  creator:any;
    projectInfo:projectInfo={
+    creator: "",
     name: "",
     quantity: "",
     fin: ""
@@ -31,7 +34,8 @@ export class ProjectComponent implements OnInit {
 
   create() {
     this.user = this.auth.getUser();
-    const { name, quantity, fin} = this.projectInfo;
+    this.projectInfo.creator = this.user._id;
+    const { creator, name, quantity, fin} = this.projectInfo;
     this.project.create(this.projectInfo,this.user)
       .subscribe(() =>
         this.router.navigate(['user/'+this.user._id]
