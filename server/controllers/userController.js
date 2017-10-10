@@ -32,7 +32,6 @@ module.exports = {
 			       salary : req.body.salary,
              money : req.body.money,
              location: req.body.location,
-             image: req.body.image
            });
 
         user.save(function (err, user) {
@@ -70,7 +69,6 @@ module.exports = {
 			         user.salary = req.body.user.salary ;
                user.money = req.body.user.money;
                user.location = req.body.user.location;
-               user.image = req.body.user.image;
 
             user.save(function (err, user) {
                 if (err) {

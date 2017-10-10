@@ -20,7 +20,6 @@ export class UpdateUserComponent implements OnInit {
     salary: "",
     money: "",
     location: "",
-    image: "",
   }
   error:string;
 

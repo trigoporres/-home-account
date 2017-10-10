@@ -25,11 +25,10 @@ module.exports = {
 
     create: function (req, res) {
         const expenses = new expensesModel({
-          creator  : req.body.expenses.creator,
+          creator  : req.body.user._id,
 			    name     : req.body.expenses.name,
 			    company  : req.body.expenses.company,
 			    quantity : req.body.expenses.quantity,
-			    monthly  : req.body.expenses.monthly,
 			    fin      : req.body.expenses.fin,
 			    facture  : req.body.expenses.facture
         });

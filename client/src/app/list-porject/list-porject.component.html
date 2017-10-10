@@ -1,8 +1,8 @@
 <div *ngIf="project">
   <div *ngFor="let e of project, let i = index" class="project">
-      <p>proyect {{i}}</p>
       <p>{{e.name}}</p>
       <p>{{e.quantity}}</p>
+      <p>{{e.description}}</p>
       <button type="button" name="button" (click)=delete(e._id)>Delete</button>
   </div>
 </div>

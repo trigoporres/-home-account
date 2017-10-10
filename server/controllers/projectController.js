@@ -24,11 +24,12 @@ module.exports = {
 
     create: function (req, res, next) {
       const project = new projectModel({
-        creator  : req.body.project.creator,
-			  name     : req.body.project.name,
-			  quantity : req.body.project.quantity,
-			  fin      : req.body.project.fin
-        });
+        creator     : req.body.user._id,
+			  name        : req.body.project.name,
+			  quantity    : req.body.project.quantity,
+			  fin         : req.body.project.fin,
+        description : req.body.project.description,
+      });
         project.save()
           .then (project =>
             {res.status(201).json({message: 'New project created¡', project});

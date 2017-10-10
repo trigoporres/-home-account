@@ -6,9 +6,7 @@ var expensesSchema = new Schema({
 	'name' : String,
 	'company' : String,
 	'quantity' : Number,
-	'monthly' : Boolean,
-	'fin' : Date,
-	'facture' : String
+	'type': ['transporte', 'compras', 'online', 'ocio', 'moda']
 },
 {
   timestamps: {
