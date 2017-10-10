@@ -2,101 +2,61 @@ var debtModel = require('../models/debtModel.js');
 
 module.exports = {
 
-    list: function (req, res) {
-      var id = req.params.id;
-        debtModel.findById(id, function (err, debts) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting debt.',
-                    error: err
-                });
-            }
-            return res.json(debts);
-        });
+    list: function (req, res,next) {
+        debtModel.find({creator:req.user._id})
+          .then( listDebt =>
+            res.status(200).json(listDebt))
+          .reject(err => res.status(500).json(err));
     },
 
-    show: function (req, res) {
+    show: function (req, res, next) {
         var id = req.params.id;
-        debtModel.findById(id, function (err, debt) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting debt.',
-                    error: err
-                });
-            }
-            if (!debt) {
-                return res.status(404).json({
-                    message: 'No such debt'
-                });
-            }
-            return res.json(debt);
-        });
+        debtModel.findOne({id: req.params.id})
+          .then( oneDebt =>
+            res.status(200).json(oneDebt))
+          .reject(err =>
+            res.status(500).json({
+              message: 'Error when getting debt.'
+            }))
+          .reject( err =>
+            res.status(404).json({
+              message: 'No such debt'}));
     },
 
-    create: function (req, res) {
-        var debt = new debtModel({
-      creator : req.body.debt.creator,
-			name : req.body.debt.name,
-			quantity : req.body.debt.quantity,
-			//monthly : req.body.monthly,
-			fin : req.body.debt.finaly
-
+    create: function (req, res, next) {
+      console.log(req.body);
+      const debt = new debtModel({
+        creator  : req.body.user._id,
+			  name     : req.body.debt.name,
+			  quantity : req.body.debt.quantity,
+			  fin      : req.body.debt.finaly
         });
 
-        debt.save(function (err, debt) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when creating debt',
-                    error: err
-                });
-            }
-            return res.status(201).json(debt);
-        });
+        debt.save()
+          .then (debt =>
+            {res.status(201).json({message: 'New debt created¡', debt});
+          })
+          .catch(err =>
+            {res.status(500).json({err:err, message: 'Cannot create debt'});
+          });
     },
 
     update: function (req, res) {
+        const update = {
+          name : req.body.name,
+    			quantity : req.body.quantity,
+    			fin : req.body.fin,
+        };
         var id = req.params.id;
-        debtModel.findOne({_id: id}, function (err, debt) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting debt',
-                    error: err
-                });
-            }
-            if (!debt) {
-                return res.status(404).json({
-                    message: 'No such debt'
-                });
-            }
-      debt.creator = req.user._id;
-      debt.name = req.body.name ? req.body.name : debt.name;
-			debt.quantity = req.body.quantity ? req.body.quantity : debt.quantity;
-			debt.monthly = req.body.monthly ? req.body.monthly : debt.monthly;
-			debt.fin = req.body.fin ? req.body.fin : debt.fin;
-
-            debt.save(function (err, debt) {
-                if (err) {
-                    return res.status(500).json({
-                        message: 'Error when updating debt.',
-                        error: err
-                    });
-                }
-
-                return res.json(debt);
-            });
-        });
+        debtModel.findByIdAndUpadate(req.body._id, update)
+          .then((upd) => res.status(201).json(upd))
+          .catch((err) => res.status(500).json(err));
     },
 
-    remove: function (req, res) {
-        var id = req.params.id;
-        debtModel.findByIdAndRemove(id, function (err, debt) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when deleting the debt.',
-                    error: err
-                });
-            }
-            return res.status(204).json();
-        });
+
+    remove: function (req, res, next) {
+      debtModel.findByIdAndRemove(req.params.id)
+        .then(() => res.status(204).json())
+        .catch(err => res.status(500).json());
     }
 };

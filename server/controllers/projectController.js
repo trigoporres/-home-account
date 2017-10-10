@@ -29,7 +29,6 @@ module.exports = {
 			  quantity : req.body.project.quantity,
 			  fin      : req.body.project.fin
         });
-
         project.save()
           .then (project =>
             {res.status(201).json({message: 'New project created¡', project});
@@ -51,9 +50,8 @@ module.exports = {
     },
 
     remove: function (req, res, next) {
-        var id = req.params.id;
         projectModel.findByIdAndRemove(req.params.id)
           .then(() => res.status(204).json())
-          .catch(err => res.status(204).json());    
+          .catch(err => res.status(500).json());
     }
 };

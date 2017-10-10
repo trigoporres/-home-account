@@ -1,54 +1,41 @@
-var expensesModel = require('../models/expensesModel.js');
-var userModel = require('../models/userModel.js');
+const expensesModel = require('../models/expensesModel.js');
+const userModel = require('../models/userModel.js');
 
 module.exports = {
 
-    list: function (req, res) {
-        var id = req.params.id;
-        expensesModel.findById(id, function (err, expensess) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting expenses.',
-                    error: err
-                });
-            }
-            return res.json(expensess);
-        });
+    list: function (req, res,next) {
+        expensesModel.find({creator:req.user._id})
+          .then( listExpenses =>
+            res.status(200).json(listExpenses))
+          .reject(err => res.status(500).json(err));
     },
 
-    show: function (req, res) {
-        var id = req.params.id;
-        expensesModel.findOne({_id: id}, function (err, expenses) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting expenses.',
-                    error: err
-                });
-            }
-            if (!expenses) {
-                return res.status(404).json({
-                    message: 'No such expenses'
-                });
-            }
-            return res.json(expenses);
-        });
+    show: function (req, res, next) {
+        expensesModel.findOne({_id: req.params.id})
+          .then( oneExpenses =>
+              res.status(200).json(oneExpenses))
+          .reject(err =>
+              res.status(500).json({
+              message: 'Error when getting expenses.'})
+            )
+          .reject(err =>
+              res.status(404).json({
+              message: 'No such expenses'}));
     },
 
     create: function (req, res) {
-      console.log(req.body);
-        var expenses = new expensesModel({
-          creator : req.body.expenses.creator,
-			    name : req.body.expenses.name,
-			    company : req.body.expenses.company,
+        const expenses = new expensesModel({
+          creator  : req.body.expenses.creator,
+			    name     : req.body.expenses.name,
+			    company  : req.body.expenses.company,
 			    quantity : req.body.expenses.quantity,
-			    monthly : req.body.expenses.monthly,
-			    fin : req.body.expenses.fin,
-			    facture : req.body.expenses.facture
+			    monthly  : req.body.expenses.monthly,
+			    fin      : req.body.expenses.fin,
+			    facture  : req.body.expenses.facture
         });
 
         expenses.save()
         .then(expenses => {
-          console.log("vamos a hacer busqueda de expenses");
             userModel.findOne({_id: expenses.creator})
             .then(user =>{
               user.salary = user.salary - expenses.quantity ;
@@ -59,50 +46,23 @@ module.exports = {
     },
 
     update: function (req, res) {
-        var id = req.params.id;
-        expensesModel.findOne({_id: id}, function (err, expenses) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting expenses',
-                    error: err
-                });
-            }
-            if (!expenses) {
-                return res.status(404).json({
-                    message: 'No such expenses'
-                });
-            }
-            creator = req.user._id;
-            expenses.name = req.body.name ? req.body.name : expenses.name;
-			expenses.company = req.body.company ? req.body.company : expenses.company;
-			expenses.quantity = req.body.quantity ? req.body.quantity : expenses.quantity;
-			expenses.monthly = req.body.monthly ? req.body.monthly : expenses.monthly;
-			expenses.fin = req.body.fin ? req.body.fin : expenses.fin;
-			expenses.facture = req.body.facture ? req.body.facture : expenses.facture;
+      const update = {
+        name     : req.body.name,
+        company  : req.body.company,
+        quantity : req.body.quantity,
+        monthly  : req.body.monthly,
+        fin      : req.body.fin,
+        facture  : req.body.facture
+      };
 
-            expenses.save(function (err, expenses) {
-                if (err) {
-                    return res.status(500).json({
-                        message: 'Error when updating expenses.',
-                        error: err
-                    });
-                }
-
-                return res.json(expenses);
-            });
-        });
+      expensesModel.findByIdAndUpdate(req.body._id, update)
+        .then((upd) => res.status(201).json(upd))
+        .catch((err) => res.status(500).json(err));
     },
 
-    remove: function (req, res) {
-        var id = req.params.id;
-        expensesModel.findByIdAndRemove(id, function (err, expenses) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when deleting the expenses.',
-                    error: err
-                });
-            }
-            return res.status(204).json();
-        });
+    remove: function (req, res, next) {
+        expensesModel.findByIdAndRemove(req.params.id)
+          .then(() => res.status(204).json())
+          .catch(err => res.status(204).json());
     }
 };
