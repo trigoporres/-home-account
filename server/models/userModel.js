@@ -8,9 +8,10 @@ var userSchema = new Schema({
 	'username': String,
 	'password' : String,
 	'phone' : Number,
-	'salary' : String,
-	'address' : String,
-	'balance' : Number,
+	'salary' : Number,
+	'money': Number,
+	'location' : String,
+	'image': String,
 },
 {
   timestamps: {

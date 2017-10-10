@@ -19,12 +19,15 @@ export class UserComponent implements OnInit {
   project:any;
   error:any
   expenses:any;
+  total:any;
+
   constructor(public auth:AuthService, public router: Router, public proj:ProjectService, public route:ActivatedRoute, public expen:ExpensesService, public debt:DebtService) { }
 
   ngOnInit() {
   this.auth.isLoggedIn().subscribe(result =>{
     this.user=result
   })
+
 
     this.route.params
           .subscribe((params) => {
@@ -40,7 +43,9 @@ export class UserComponent implements OnInit {
           })
     this.auth.getLoginEventEmitter()
         .subscribe( user =>{
-          this.user=user });
+          this.user=user
+          this.total = this.user.salary + this.user.money
+        });
   }
 
 

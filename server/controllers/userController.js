@@ -42,8 +42,9 @@ module.exports = {
 			       password : req.body.password,
 			       phone : req.body.phone,
 			       salary : req.body.salary,
-			       address : req.body.address,
-			       balance : req.body.salary
+             money : req.body.money,
+             location: req.body.location,
+             image: req.body.image
            });
 
         user.save(function (err, user) {
@@ -79,8 +80,9 @@ module.exports = {
 			         user.password = req.body.user.password ;
 			         user.phone = req.body.user.phone ;
 			         user.salary = req.body.user.salary ;
-			         user.address = req.body.user.address ;
-			         user.balance = req.body.user.balance;
+               user.money = req.body.user.money;
+               user.location = req.body.user.location;
+               user.image = req.body.user.image;
 
             user.save(function (err, user) {
                 if (err) {

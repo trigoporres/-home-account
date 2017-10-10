@@ -9,15 +9,18 @@ import { Router } from '@angular/router'
 })
 export class UpdateUserComponent implements OnInit {
   user:any;
+  total:any;
   updateInfo = {
     _id: "",
     first_name: "",
     last_name: "",
-    username: "",
     email: "",
+    username: "",
     phone: "",
     salary: "",
-    balance: "",
+    money: "",
+    location: "",
+    image: "",
   }
   error:string;
 
