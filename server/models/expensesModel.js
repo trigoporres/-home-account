@@ -1,12 +1,13 @@
-var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema   = mongoose.Schema;
+const TYPES = ['transporte', 'purchase', 'online', 'ocio'];
 
-var expensesSchema = new Schema({
+const expensesSchema = new Schema({
 	'creator': {type: Schema.Types.ObjectId, ref:"user", require:true},
 	'name' : String,
 	'company' : String,
 	'quantity' : Number,
-	'type': ['transporte', 'compras', 'online', 'ocio', 'moda']
+	'type':  { type: String, enum: TYPES, required: true },
 },
 {
   timestamps: {

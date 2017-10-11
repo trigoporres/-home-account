@@ -13,17 +13,18 @@
   <input type="text" [(ngModel)]="expensesInfo.quantity" name="quantity"/>
   <br><br>
 
-  <!-- <label> Monthly </label>
-  <input type="radio" [(ngModel)]="expensesInfo.monthly" name="monthly"/>
-  <br><br> -->
-
-  <label> Finaly </label>
-  <input type="date" [(ngModel)]="expensesInfo.fin" name="finaly"/>
+  <label> Type </label>
+  <select type="select" [(ngModel)]="expensesInfo.type" name="type">
+    <option value="transport">Transport</option>
+    <option value="purchase">Purchase</option>
+    <option value="online">Online</option>
+    <option value="ocio">Ocio</option>
+  </select>
   <br><br>
 
-  <!-- <label> Facture </label>
-  <input type="file" [(ngModel)]="expensesInfo.facture" name="facture"/>
-  <br><br> -->
+
+
+
 
   <button type="button" (click)="create()"> Create project </button>
 </form>

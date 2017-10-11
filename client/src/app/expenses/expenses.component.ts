@@ -10,9 +10,7 @@ interface expensesInfo{
 	name : string,
 	company : string,
 	quantity : number,
-	monthly : boolean,
-	fin : Date,
-	facture : String
+	type : string,
 }
 
 @Component({
@@ -27,9 +25,7 @@ export class ExpensesComponent implements OnInit {
   	name : "",
   	company : "",
   	quantity : "",
-  	monthly : "",
-  	fin : "",
-  	facture : ""
+  	type: ""
   }
 
   constructor(public expenses:ExpensesService, public router: Router, public auth:AuthService) { }
@@ -40,8 +36,8 @@ export class ExpensesComponent implements OnInit {
   create() {
     this.user = this.auth.getUser();
     this.expensesInfo.creator = this.user._id;
-    const { name, company, quantity, fin} = this.expensesInfo;
-    this.expenses.create(this.expensesInfo).subscribe(() =>
+    const { name, company, quantity, type} = this.expensesInfo;
+    this.expenses.create(this.expensesInfo,this.user).subscribe(() =>
     this.router.navigate(['user/'+this.user._id])
   )}
 

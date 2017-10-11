@@ -24,13 +24,14 @@ module.exports = {
     },
 
     create: function (req, res) {
+      console.log(req);
+
         const expenses = new expensesModel({
-          creator  : req.body.user._id,
+          creator  : req.user._id,
 			    name     : req.body.expenses.name,
 			    company  : req.body.expenses.company,
 			    quantity : req.body.expenses.quantity,
-			    fin      : req.body.expenses.fin,
-			    facture  : req.body.expenses.facture
+          type     : req.body.expenses.type
         });
 
         expenses.save()
@@ -49,9 +50,7 @@ module.exports = {
         name     : req.body.name,
         company  : req.body.company,
         quantity : req.body.quantity,
-        monthly  : req.body.monthly,
-        fin      : req.body.fin,
-        facture  : req.body.facture
+        type     : req.body.type
       };
 
       expensesModel.findByIdAndUpdate(req.body._id, update)
