@@ -5,8 +5,8 @@ var debtSchema = new Schema({
 	'creator': {type: Schema.Types.ObjectId, ref:"user", require:true},
 	'name' : String,
 	'quantity' : Number,
-	'monthly' : Boolean,
-	'fin' : Date
+	'fin' : Date,
+	'type': String,
 },
 {
   timestamps: {

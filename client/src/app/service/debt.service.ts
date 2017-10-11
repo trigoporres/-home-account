@@ -15,6 +15,7 @@ export class DebtService {
   constructor(private http: Http) { }
 
   create(debt,user){
+    console.log(debt)
     return this.http.post(`${BASEURL}/user/${user._id}/debt`,{debt,user}, this.options)
       .map(res => res.json())
       }

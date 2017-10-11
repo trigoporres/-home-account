@@ -8,6 +8,7 @@ interface debtInfo{
 	name : string,
 	quantity : number,
 	fin : Date,
+	type: string,
 }
 
 @Component({
@@ -21,6 +22,7 @@ export class DebtComponent implements OnInit {
     name : "",
     quantity : "",
     fin : "",
+		type: "",
   }
 
   constructor(public debt:DebtService, public router: Router, public auth:AuthService) { }
@@ -30,7 +32,8 @@ export class DebtComponent implements OnInit {
 
   create() {
     this.user = this.auth.getUser();
-    const { name, quantity, fin} = this.debtInfo;
+    const { name, quantity, fin, type} = this.debtInfo;
+		console.log(this.debtInfo)
     this.debt.create(this.debtInfo,this.user)
 			.subscribe( () => this.router.navigate(['user/'+this.user._id]));
 }

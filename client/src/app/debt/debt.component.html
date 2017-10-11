@@ -9,12 +9,12 @@
   <input type="text" [(ngModel)]="debtInfo.quantity" name="quantity"/>
   <br><br>
 
-  <!-- <label> Monthly </label>
-  <input type="radio" [(ngModel)]="expensesInfo.fin" name="monthly"/>
-  <br><br> -->
-
   <label> Finaly </label>
   <input type="date" [(ngModel)]="debtInfo.fin" name="fin"/>
+  <br><br>
+
+  <label> Type </label>
+  <input type="text" [(ngModel)]="debtInfo.type" name="type"/>
   <br><br>
 
   <button type="button" (click)="create()"> Create project </button>

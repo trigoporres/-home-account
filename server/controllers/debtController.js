@@ -29,7 +29,8 @@ module.exports = {
         creator  : req.body.user._id,
 			  name     : req.body.debt.name,
 			  quantity : req.body.debt.quantity,
-			  fin      : req.body.debt.finaly
+			  fin      : req.body.debt.finaly,
+        type     : req.body.debt.type
         });
 
         debt.save()
@@ -43,9 +44,10 @@ module.exports = {
 
     update: function (req, res) {
         const update = {
-          name : req.body.name,
+          name     : req.body.name,
     			quantity : req.body.quantity,
-    			fin : req.body.fin,
+    			fin      : req.body.fin,
+          type     : req.body.debt.type
         };
         var id = req.params.id;
         debtModel.findByIdAndUpadate(req.body._id, update)
