@@ -5,6 +5,7 @@ const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const debug = require('debug')("home-account:"+path.basename(__filename).split('.')[0]);
 const userController = require('../controllers/userController.js');
+const upload = require('../config/multer');
 
 var authRoutes = express.Router();
 
@@ -79,7 +80,7 @@ authRoutes.get('/user/:id', userController.show);
 
 authRoutes.post('/user', userController.create);
 
-authRoutes.put('/user/:id', userController.update);
+authRoutes.post('/user/:id', upload.single('file'), userController.update);
 
 authRoutes.delete('/user/:id', userController.remove);
 

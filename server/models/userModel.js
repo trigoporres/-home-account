@@ -11,6 +11,7 @@ var userSchema = new Schema({
 	'salary' : Number,
 	'money': Number,
 	'location' : String,
+	'image' : String,
 },
 {
   timestamps: {

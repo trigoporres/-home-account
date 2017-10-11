@@ -2,35 +2,39 @@
   <h2> Update User </h2>
 
   <label> First Name </label>
-  <input type="text" name="first_name" [(ngModel)]="updateInfo.first_name"/>
+  <input type="text" name="first_name" [(ngModel)]="updateInfo.first_name" />
   <br><br>
 
   <label> Last Name </label>
-  <input type="text" name="last_name" [(ngModel)]="updateInfo.last_name"/>
+  <input type="text" name="last_name" [(ngModel)]="updateInfo.last_name" />
   <br><br>
 
   <label> Email </label>
-  <input type="text" name="email"[(ngModel)]="updateInfo.email"/>
+  <input type="text" name="email" [(ngModel)]="updateInfo.email" />
   <br><br>
 
   <label> User name </label>
-  <input type="text" name="username" [(ngModel)]="updateInfo.username"/>
+  <input type="text" name="username" [(ngModel)]="updateInfo.username" />
   <br><br>
 
   <label> Phone </label>
-  <input type="text" name="phone" [(ngModel)]="updateInfo.phone"/>
+  <input type="text" name="phone" [(ngModel)]="updateInfo.phone" />
   <br><br>
 
   <label> Salary </label>
-  <input type="text" name="salary" [(ngModel)]="updateInfo.salary"/>
+  <input type="text" name="salary" [(ngModel)]="updateInfo.salary" />
   <br><br>
 
   <label> Money </label>
-  <input type="text" name="money" [(ngModel)]="updateInfo.money"/>
+  <input type="text" name="money" [(ngModel)]="updateInfo.money" />
   <br><br>
 
   <label> Location </label>
-  <input type="text" name="location" [(ngModel)]="updateInfo.location"/>
+  <input type="text" name="location" [(ngModel)]="updateInfo.location" />
+  <br><br>
+
+  <label> Image </label>
+  <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
   <br><br>
 
   <button type="button" (click)="update()">Update</button>

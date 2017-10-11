@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import {routes} from './routes';
+import { FileUploadModule } from "ng2-file-upload";
 
 import { AppComponent } from './app.component';
 import { MySignupFormComponent } from './my-signup-form/my-signup-form.component';
@@ -46,7 +47,8 @@ import { ListDebtComponent } from './list-debt/list-debt.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FileUploadModule
   ],
   providers: [ AuthService , IsLoggedInService, ProjectService, ExpensesService, DebtService],
   bootstrap: [AppComponent]

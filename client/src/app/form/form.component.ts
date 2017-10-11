@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.auth.getUser();
+    console.log(this.user)
   }
 
 }

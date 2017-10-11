@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
-import { Router } from '@angular/router'
+import { ActivatedRoute,Router } from '@angular/router';
+import { FileUploader } from "ng2-file-upload";
+import { environment } from "../../environments/environment"
 
 @Component({
   selector: 'app-update-user',
@@ -10,6 +12,13 @@ import { Router } from '@angular/router'
 export class UpdateUserComponent implements OnInit {
   user:any;
   total:any;
+  feedback: string;
+  id;
+
+  uploader: FileUploader= new FileUploader({
+    url: ""
+  });
+
   updateInfo = {
     _id: "",
     first_name: "",
@@ -25,19 +34,35 @@ export class UpdateUserComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router) {}
+    private router: Router,
+    public route: ActivatedRoute) {}
 
   ngOnInit() {
     this.successCb(this.auth.user);
+  //   this.uploader.onSuccessItem = (item, response) => {
+  //    this.feedback = JSON.parse(response).message;
+  //  };
+   //
+  //  this.uploader.onErrorItem = (item, response, status, headers) => {
+  //    this.feedback = JSON.parse(response).message;
+  //  };
   }
 
   update() {
-    this.auth.update(this.updateInfo._id, this.updateInfo)
-        .subscribe(
-          (user) => this.successCb(user),
-          (err) => this.errorCb(err),
-        );
-        this.router.navigate(['user/'+this.updateInfo._id])
+    this.uploader.onBuildItemForm = (item, form) => {
+      form.append('first_name', this.updateInfo.first_name);
+      form.append('last_name', this.updateInfo.last_name);
+      form.append('email', this.updateInfo.email);
+      form.append('username', this.updateInfo.username);
+      form.append('password',this.updateInfo.username);
+      form.append('phone', this.updateInfo.phone);
+      form.append('salary', this.updateInfo.salary);
+      form.append('money', this.updateInfo.money);
+      form.append('location', this.updateInfo.location);
+  };
+    this.uploader.uploadAll();
+    this.uploader.onCompleteItem=  () => console.log("hecho")
+    this.router.navigate(['user/'+this.updateInfo._id])
   }
 
   errorCb(err) {
@@ -46,8 +71,8 @@ export class UpdateUserComponent implements OnInit {
  }
 
  successCb(user) {
-   this.updateInfo
-    = user;
+   this.updateInfo = user;
+   this.uploader.options.url = `${environment.BASEURL}/auth/user/${this.updateInfo._id}`
    this.error = null;
  }
 

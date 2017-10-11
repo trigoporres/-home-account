@@ -26,6 +26,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   this.auth.isLoggedIn().subscribe(result =>{
     this.user=result
+    console.log(this.user)
   })
 
 

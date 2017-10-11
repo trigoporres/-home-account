@@ -49,7 +49,7 @@ export class AuthService {
     }
 
     update(id, user) {
-      return this.http.put(`${BASEURL}/user/${id}`, {user}, this.options)
+      return this.http.post(`${BASEURL}/user/${id}`, {user}, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
