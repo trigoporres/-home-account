@@ -25,6 +25,7 @@ export class UpdateUserComponent implements OnInit {
     last_name: "",
     email: "",
     username: "",
+    password: "",
     phone: "",
     salary: "",
     money: "",
@@ -39,13 +40,6 @@ export class UpdateUserComponent implements OnInit {
 
   ngOnInit() {
     this.successCb(this.auth.user);
-  //   this.uploader.onSuccessItem = (item, response) => {
-  //    this.feedback = JSON.parse(response).message;
-  //  };
-   //
-  //  this.uploader.onErrorItem = (item, response, status, headers) => {
-  //    this.feedback = JSON.parse(response).message;
-  //  };
   }
 
   update() {
@@ -54,7 +48,7 @@ export class UpdateUserComponent implements OnInit {
       form.append('last_name', this.updateInfo.last_name);
       form.append('email', this.updateInfo.email);
       form.append('username', this.updateInfo.username);
-      form.append('password',this.updateInfo.username);
+      form.append('password',this.updateInfo.password);
       form.append('phone', this.updateInfo.phone);
       form.append('salary', this.updateInfo.salary);
       form.append('money', this.updateInfo.money);

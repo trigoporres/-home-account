@@ -7,6 +7,7 @@ var projectSchema = new Schema({
 	'quantity'    : Number,
 	'fin'         : Date,
 	'description' : String,
+	'image' : String,
 },
 {
   timestamps: {
