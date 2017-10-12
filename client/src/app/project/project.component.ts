@@ -9,7 +9,8 @@ interface projectInfo{
   creator: string,
   name: string,
   quantity: string,
-  fin: string
+  fin: string,
+  description: string
 }
 
 @Component({
@@ -24,7 +25,8 @@ export class ProjectComponent implements OnInit {
     creator: "",
     name: "",
     quantity: "",
-    fin: ""
+    fin: "",
+    description: "",
   }
 
   constructor(public project:ProjectService, public router: Router, public auth:AuthService) { }
@@ -35,7 +37,7 @@ export class ProjectComponent implements OnInit {
   create() {
     this.user = this.auth.getUser();
     this.projectInfo.creator = this.user._id;
-    const { creator, name, quantity, fin} = this.projectInfo;
+    const { creator, name, quantity, fin, description} = this.projectInfo;
     console.log(this.projectInfo)
     this.project.create(this.projectInfo,this.user)
       .subscribe(() =>

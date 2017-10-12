@@ -42,9 +42,9 @@ app.use('/auth', authRoutes);
 app.use('/user/:id/project', project);
 app.use('/user/:id/debt', debt);
 app.use('/user/:id/expenses', expenses);
-app.all('/*', function (req, res) {
-  res.sendFile(__dirname + '/public/index.html');
-});
+// app.all('/*', function (req, res) {
+//   res.sendFile(__dirname + '/public/index.html');
+// });
 
 require('./config/error-handler')(app);
 
