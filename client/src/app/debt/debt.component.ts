@@ -28,6 +28,8 @@ export class DebtComponent implements OnInit {
   constructor(public debt:DebtService, public router: Router, public auth:AuthService) { }
 
   ngOnInit() {
+		this.user = this.auth.getUser();
+
   }
 
   create() {

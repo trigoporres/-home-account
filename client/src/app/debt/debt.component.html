@@ -1,21 +1,28 @@
-<form>
-  <h2> New Expenses </h2>
+<div class="container row">
+<div class="col-lg-3"></div>
+<form class="col-lg-6">
+  <h2 class="text-center"> New Debt</h2>
 
-  <label> Name </label>
-  <input type="text" [(ngModel)]="debtInfo.name" name="name"/>
-  <br><br>
+  <div class="form-group">
+    <label> Name </label>
+    <input type="text" [(ngModel)]="debtInfo.name" name="name" class="form-control"/>
+  </div>
 
-  <label> Quantity </label>
-  <input type="text" [(ngModel)]="debtInfo.quantity" name="quantity"/>
-  <br><br>
+  <div class="form-group">
+    <label> Quantity </label>
+    <input type="text" [(ngModel)]="debtInfo.quantity" name="quantity" class="form-control"/>
+  </div>
 
-  <label> Finaly </label>
-  <input type="date" [(ngModel)]="debtInfo.fin" name="fin"/>
-  <br><br>
+  <div class="form-group">
+    <label> Finaly </label>
+    <input type="date" [(ngModel)]="debtInfo.fin" name="fin" class="form-control"/>
+  </div>
 
-  <label> Type </label>
-  <input type="text" [(ngModel)]="debtInfo.type" name="type"/>
-  <br><br>
+  <div class="form-group">
+    <label> Type </label>
+    <input type="text" [(ngModel)]="debtInfo.type" name="type" class="form-control"/>
+  </div>
 
-  <button type="button" (click)="create()"> Create project </button>
+  <button type="button" (click)="create()" class="btn btn-block btn-success"> Create project </button>
+  <button type="button" name="button" class="btn btn-block btn-info" routerLink="/user/{{user._id}}">Back Profile</button>
 </form>

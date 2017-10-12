@@ -40,7 +40,7 @@ export class MySignupFormComponent implements OnInit {
 
           this.auth.login(username, password)
              .subscribe(result =>
-               this.router.navigate(["/user/"+result._id]),
+               this.router.navigate(["/user/"+result._id+"/form/edit"]),
              )
          )
   }

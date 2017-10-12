@@ -32,6 +32,7 @@ export class ProjectComponent implements OnInit {
   constructor(public project:ProjectService, public router: Router, public auth:AuthService) { }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
   }
 
   create() {

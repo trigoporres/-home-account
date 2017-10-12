@@ -31,14 +31,14 @@ export class ExpensesComponent implements OnInit {
   constructor(public expenses:ExpensesService, public router: Router, public auth:AuthService) { }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
   }
 
   create() {
-    this.user = this.auth.getUser();
     this.expensesInfo.creator = this.user._id;
     const { name, company, quantity, type} = this.expensesInfo;
-    this.expenses.create(this.expensesInfo,this.user).subscribe(() =>
-    this.router.navigate(['user/'+this.user._id])
+    this.expenses.create(this.expensesInfo,this.user).subscribe(
+      () => this.router.navigate(['user/'+this.user._id])
   )}
 
 
