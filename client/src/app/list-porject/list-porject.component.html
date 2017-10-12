@@ -1,4 +1,4 @@
-<h1>Projects</h1>
+<h1 class="glyphicon glyphicon-calendar"> Projects</h1>
 
 <div *ngIf="project">
 
@@ -7,7 +7,7 @@
 
       <div class="panel-heading"><h3>{{e.name}}</h3></div>
       <div class="panel-body">
-        <button  type="button" name="button" (click)=delete(e._id) class="glyphicon glyphicon-remove btn-link pull-right"></button>
+        <button  type="button" name="button" (click)=delete(e._id) class="glyphicon glyphicon-trash btn-link pull-right"></button>
         <p>Description project: {{e.description}}</p>
         <p>Quantity needed: {{e.quantity}} €</p>
       </div>

@@ -1,0 +1,9 @@
+h1{
+  color: red;
+  margin-bottom: 25px;
+}
+
+.panel-heading{
+  background-color: red;
+  color: white;
+}

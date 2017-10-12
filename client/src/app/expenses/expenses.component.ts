@@ -13,6 +13,8 @@ interface expensesInfo{
 	type : string,
 }
 
+
+
 @Component({
   selector: 'app-expenses',
   templateUrl: './expenses.component.html',

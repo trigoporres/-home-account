@@ -1,12 +1,10 @@
 
-
-<h1>Debts</h1>
-
+<h1 class="glyphicon glyphicon-alert"> Debts</h1>
 <div *ngIf="debt">
   <div *ngFor="let e of debts, let i = index" class="panel panel-info col-lg-6">
       <div class="panel-heading"><h3>{{e.name}}</h3></div>
       <div class="panel-body">
-        <button  type="button" name="button" (click)=delete(e._id) class="glyphicon glyphicon-remove btn-link pull-right"></button>
+        <button  type="button" name="button" (click)=delete(e._id) class="glyphicon glyphicon-trash btn-link pull-right"></button>
         <p>Type: {{e.type}}</p>
         <p>Quantity: {{e.quantity}} €</p>
       </div>
