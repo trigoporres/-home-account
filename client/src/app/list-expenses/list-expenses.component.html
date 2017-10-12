@@ -1,9 +1,15 @@
+<h1>Expenses</h1>
+
 <div *ngIf="expenses">
-  <div *ngFor="let e of expenses, let i = index" class="project">
-      <p>expenses {{i}}</p>
-      <p>{{e.name}}</p>
-      <p>{{e.quantity}}</p>
-      <button type="button" name="button" (click)=delete(e._id)>Delete</button>
+  <div *ngFor="let e of expenses, let i = index" class="panel panel-danger col-lg-6">
+      <div class="panel-heading"><h3>{{e.name}}</h3></div>
+      <div class="panel-body">
+        <button  type="button" name="button" (click)=delete(e._id) class="glyphicon glyphicon-remove btn-link pull-right"></button>
+        <p>Company: {{e.description}}</p>
+        <p>Type: {{e.type}}</p>
+        <p>Quantity: {{e.quantity}} €</p>
+      </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>
