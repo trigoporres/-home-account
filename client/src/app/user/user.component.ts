@@ -6,8 +6,6 @@ import { DebtService } from '../service/debt.service'
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -26,7 +24,6 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   this.auth.isLoggedIn().subscribe(result =>{
     this.user=result
-    console.log(this.user)
   })
 
 
@@ -52,8 +49,8 @@ export class UserComponent implements OnInit {
 
   logout() {
     this.auth.logout()
-        .subscribe(result =>
-           this.router.navigate(["/"])
+        .subscribe(
+          result => this.router.navigate(["/"])
         );
   }
 

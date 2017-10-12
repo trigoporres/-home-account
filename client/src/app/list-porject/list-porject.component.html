@@ -1,9 +1,10 @@
-<div *ngIf="project">
-  <div *ngFor="let e of project, let i = index" class="project">
-      <p>{{e.name}}</p>
-      <p>{{e.quantity}}</p>
-      <p>{{e.description}}</p>
-      <button type="button" name="button" (click)=delete(e._id)>Delete</button>
+<div *ngIf="project" class="container">
+  <div *ngFor="let e of project, let i = index" class=" card-list row">
+      <button col-md-4 type="button" name="button" (click)=delete(e._id) class="glyphicon glyphicon-remove btn-link pull-right"></button>
+      <p col-sm-8>Name : {{e.name}}</p>
+      <p col-sm-8>Quantity : {{e.quantity}}</p>
+      <p col-sm-8>{{e.description}}</p>
+      <p col-sm-8> {{e.fin.date}}</p>
   </div>
 </div>
 <router-outlet></router-outlet>

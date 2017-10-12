@@ -1,5 +1,5 @@
-<div *ngIf="user ">
-  <button type="submit" (click)=logout() name="button">Logout</button>
+<div class="container" *ngIf="user ">
+
   <button type="button" name="button">
     <a routerLink="/user/{{user._id}}/form/edit">EDIT</a>
   </button>
@@ -15,7 +15,7 @@
 
   <h3>Saldo actual {{total}} </h3>
   <div class="userDate">
-    <img src="https://home-account.herokuapp.com{{user.image}}" alt="">
+    <img src="http://localhost:3000{{user.image}}" alt="">
     <p>First name : <strong>{{user.first_name}}</strong></p>
     <p>Last name : <strong>{{user.last_name}}</strong></p>
     <p>Email : <strong>{{user.email}}</strong></p>
