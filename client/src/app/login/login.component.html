@@ -1,14 +1,16 @@
-<form *ngIf="!user">
-  <h2> Login </h2>
+<form *ngIf="!user" class="col-md-4">
+  <h1 class="text-center">  Login </h1>
 
+    <div class="form-group">
   <label> User Name </label>
-  <input type="text" [(ngModel)]="loginInfo.username" name="username"/>
-  <br><br>
-
+  <input type="text" [(ngModel)]="loginInfo.username" name="username" class="form-control"/>
+  </div>
+    <div class="form-group">
   <label> Password </label>
-  <input type="password" [(ngModel)]="loginInfo.password" name="password"/>
-  <br><br>
+  <input type="password" [(ngModel)]="loginInfo.password" name="password" class="form-control"/>
+  </div>
 
-  <button type="submit" (click)="login()" > Login </button>
+  <button type="submit" (click)="login()" class="btn btn-info btn-lg btn-block"> Login </button>
+  <br>
   <p> Do you have not an account? <a [routerLink]="['']"> Signup</a></p>
 </form>
