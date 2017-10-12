@@ -15,14 +15,14 @@
 
   <h3>Saldo actual {{total}} </h3>
   <div class="userDate">
-    <img src="http://localhost:3000/{{user.image}}" alt="">
+    <img src="https://home-account.herokuapp.com{{user.image}}" alt="">
     <p>First name : <strong>{{user.first_name}}</strong></p>
     <p>Last name : <strong>{{user.last_name}}</strong></p>
     <p>Email : <strong>{{user.email}}</strong></p>
     <p *ngIf="user.phone">phone : <strong>{{user.phone}}</strong></p>
     <p *ngIf="user.address">adress : <strong>{{user.address}}</strong></p>
     <p *ngIf="user.location">location : <strong>{{user.location}}</strong></p>
-    
+
   </div>
   <div *ngIf="project">
     <div *ngFor="let e of project | slice:0:3, let i = index" class="project">
