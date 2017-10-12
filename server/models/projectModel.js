@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
+var user = require ('./userModel');
 
 var projectSchema = new Schema({
 	'creator'     : {type: Schema.Types.ObjectId, ref:"user", require:true},

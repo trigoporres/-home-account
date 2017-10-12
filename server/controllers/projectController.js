@@ -25,11 +25,11 @@ module.exports = {
     create: function (req, res, next) {
       console.log(req.body);
       const project = new projectModel({
-        creator     : req.user._id,
-			  name        : req.body.name,
-			  quantity    : req.body.quantity,
-			  fin         : req.body.fin,
-        description : req.body.description,
+        creator     : req.body.user._id,
+			  name        : req.body.project.name,
+			  quantity    : req.body.project.quantity,
+			  fin         : req.body.project.fin,
+        description : req.body.project.description,
       });
         project.save()
           .then (project =>
