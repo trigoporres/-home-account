@@ -1,54 +1,46 @@
 <div class="container" *ngIf="user ">
 
-  <button type="button" name="button">
-    <a routerLink="/user/{{user._id}}/form/edit">EDIT</a>
-  </button>
-  <button type="button" name="button">
-    <a routerLink="/user/{{user._id}}/form/project">Project</a>
-  </button>
-  <button type="button" name="button">
-    <a routerLink="/user/{{user._id}}/form/expenses">Expenses</a>
-  </button>
-  <button type="button" name="button">
-    <a routerLink="/user/{{user._id}}/form/debt">Debt</a>
-  </button>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Home-account</a>
+  </div>
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/user/{{user._id}}/form/edit">Edit Profile</a></li>
+      <li><a routerLink="/user/{{user._id}}/form/project">Add project</a></li>
+      <li><a routerLink="/user/{{user._id}}/form/expenses">Add expenses</a></li>
+      <li><a routerLink="/user/{{user._id}}/form/debt">Add debt</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Cast: <strong>{{total}}€</strong></a></li>
+      <li><a (click)=logout()><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
 
-  <h3>Saldo actual {{total}} </h3>
-  <div class="userDate">
-    <img src="http://localhost:3000{{user.image}}" alt="">
-    <p>First name : <strong>{{user.first_name}}</strong></p>
-    <p>Last name : <strong>{{user.last_name}}</strong></p>
-    <p>Email : <strong>{{user.email}}</strong></p>
-    <p *ngIf="user.phone">phone : <strong>{{user.phone}}</strong></p>
-    <p *ngIf="user.address">adress : <strong>{{user.address}}</strong></p>
-    <p *ngIf="user.location">location : <strong>{{user.location}}</strong></p>
+<div class="container">
+  <div class="userDate row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-4 dateprofile">
+      <h3>First name : <br><strong>{{user.first_name}}</strong></h3>
+      <h3>Last name : <br><strong>{{user.last_name}}</strong></h3>
+      <h3>Email : <br><strong>{{user.email}}</strong></h3>
+    </div>
+    <div class="col-lg-6 text-center">
+      <img src="http://localhost:3000{{user.image}}" alt="">
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>
 
-  </div>
-  <div *ngIf="project">
-    <div *ngFor="let e of project | slice:0:3, let i = index" class="project">
-        <p>{{e.name}}</p>
-        <p>{{e.description}}</p>
-    </div>
-  </div>
-  <a routerLink="/user/{{user._id}}/list">Project List</a>
-<br><br><br><br><br>
-  <div *ngIf="expenses">
-    <div *ngFor="let p of expenses | slice:0:3, let m = index" class="project">
-        <p>expenses {{m}}</p>
-        <p>{{p.name}}</p>
-        <p>{{p.quantity}}</p>
-    </div>
-  </div>
-  <a routerLink="/user/{{user._id}}/listExp">Expenses List</a>
-<br><br><br><br>
-  <div *ngIf="debts">
-    <div *ngFor="let s of debts | slice:0:3, let j = index" class="project">
-        <p>debt {{j}}</p>
-        <p>{{s.name}}</p>
-        <p>{{s.quantity}}</p>
-    </div>
-  </div>
-  <a routerLink="/user/{{user._id}}/listDebt">Debt List</a>
-
-<br><br><br>
+<app-list-porject></app-list-porject>
+<app-list-debt></app-list-debt>
+<app-list-expenses></app-list-expenses>
 </div>
