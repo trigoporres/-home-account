@@ -30,5 +30,4 @@ export class LoginComponent implements OnInit {
          this.router.navigate(["/user/"+result._id]),
        );
     }
-
 }

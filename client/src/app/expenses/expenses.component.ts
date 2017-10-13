@@ -4,7 +4,6 @@ import { Router } from '@angular/router'
 import { AuthService } from '../service/auth.service'
 import { ExpensesService } from '../service/expenses.service'
 
-
 interface expensesInfo{
   creator: string,
 	name : string,
@@ -13,13 +12,12 @@ interface expensesInfo{
 	type : string,
 }
 
-
-
 @Component({
   selector: 'app-expenses',
   templateUrl: './expenses.component.html',
   styleUrls: ['./expenses.component.css']
 })
+
 export class ExpensesComponent implements OnInit {
   user:any;
   expensesInfo = {
@@ -42,9 +40,4 @@ export class ExpensesComponent implements OnInit {
     this.expenses.create(this.expensesInfo,this.user).subscribe(
       () => this.router.navigate(['user/'+this.user._id])
   )}
-
-
-
-
-
 }

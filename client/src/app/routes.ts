@@ -1,4 +1,3 @@
-
 import { Routes } from '@angular/router';
 
 import {MySignupFormComponent} from './my-signup-form/my-signup-form.component';
@@ -13,9 +12,6 @@ import {FormComponent} from './form/form.component'
 import {ListExpensesComponent} from './list-expenses/list-expenses.component'
 import {ListDebtComponent} from './list-debt/list-debt.component'
 
-
-
-
 export const routes: Routes = [
     { path: '',
       component: MySignupFormComponent,
@@ -24,7 +20,7 @@ export const routes: Routes = [
     { path: 'user/:id/list', component: ListPorjectComponent},
     { path: 'user/:id/listExp', component: ListExpensesComponent},
     { path: 'user/:id/listDebt', component: ListDebtComponent},
-    {path: 'user/:id/form', component: FormComponent,
+    { path: 'user/:id/form', component: FormComponent,
       children: [
         {path: 'edit', component: UpdateUserComponent},
         {path: 'project', component: ProjectComponent},

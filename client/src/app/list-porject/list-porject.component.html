@@ -2,14 +2,15 @@
 
 <div *ngIf="project">
 
+  <div *ngFor="let e of project, let i = index" class="panel panel-primary col-lg-6">
 
-<div *ngFor="let e of project, let i = index" class="panel panel-primary col-lg-6">
-
-      <div class="panel-heading"><h3>{{e.name}}</h3></div>
-      <div class="panel-body">
-        <button  type="button" name="button" (click)=delete(e._id) class="glyphicon glyphicon-trash btn-link pull-right"></button>
-        <p><strong>Description project:</strong> {{e.description}}</p>
-        <p><strong>Quantity needed:</strong> {{e.quantity}} €</p>
-      </div>
+    <div class="panel-heading">
+      <h3>{{e.name}}</h3>
     </div>
+    <div class="panel-body">
+      <button type="button" name="button" (click)=delete(e._id) class="glyphicon glyphicon-trash btn-link pull-right"></button>
+      <p><strong>Description project:</strong> {{e.description}}</p>
+      <p><strong>Quantity needed:</strong> {{e.quantity}} €</p>
     </div>
+  </div>
+</div>

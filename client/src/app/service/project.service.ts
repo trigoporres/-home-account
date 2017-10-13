@@ -29,10 +29,4 @@ export class ProjectService {
     return this.http.delete(`${BASEURL}/user/${user}/project/${id}`, this.options)
       .map(res=> res.json())
   }
-
-
-
-
-
-
 }

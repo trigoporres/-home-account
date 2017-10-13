@@ -32,12 +32,10 @@ export class DebtComponent implements OnInit {
 
   }
 
-  create() {
+	create() {
     this.user = this.auth.getUser();
     const { name, quantity, fin, type} = this.debtInfo;
-		console.log(this.debtInfo)
     this.debt.create(this.debtInfo,this.user)
 			.subscribe( () => this.router.navigate(['user/'+this.user._id]));
-}
-
+		}
 }

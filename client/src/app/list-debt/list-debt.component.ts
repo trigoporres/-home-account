@@ -13,8 +13,8 @@ export class ListDebtComponent implements OnInit {
   error:any;
   user:any;
   debts:any;
-  constructor(public auth:AuthService, public router: Router, public route:ActivatedRoute, public debt:DebtService) { }
 
+  constructor(public auth:AuthService, public router: Router, public route:ActivatedRoute, public debt:DebtService) { }
 
   ngOnInit() {
     this.user = this.auth.getUser();

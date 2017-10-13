@@ -17,7 +17,6 @@ export class ListPorjectComponent implements OnInit {
   constructor(public auth:AuthService, public router: Router, public route:ActivatedRoute, public proj:ProjectService) { }
 
   ngOnInit() {
-    console.log("Entro")
     this.user = this.auth.getUser();
 
     this.route.params
@@ -39,7 +38,6 @@ export class ListPorjectComponent implements OnInit {
               .subscribe((params) => {
                 this.proj.show(params.id).subscribe(project => {this.successCb(project)})
               })
-      )}
-
-
+        )
+  }
 }

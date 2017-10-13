@@ -32,7 +32,6 @@ export class ListExpensesComponent implements OnInit {
   }
 
   delete(id){
-    console.log('/user/'+this.user._id+'/list')
     this.exp.delete(this.user._id, id)
         .subscribe(()=>
         this.route.params
